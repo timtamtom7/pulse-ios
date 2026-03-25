@@ -14,11 +14,26 @@ final class PrivacyViewModel: @unchecked Sendable {
     var deleteConfirmationText = ""
     var errorMessage: String?
 
+    // R2: Privacy hardening
+    var isOnDeviceMLEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isOnDeviceMLEnabled, forKey: "isOnDeviceMLEnabled")
+        }
+    }
+    var isDataDonationEnabled: Bool = false {
+        didSet {
+            UserDefaults.standard.set(isDataDonationEnabled, forKey: "isDataDonationEnabled")
+        }
+    }
+    var encryptionStatus: String = "Encrypted at rest"
+    var lastPrivacyAudit: Date?
+
     private let database = DatabaseService.shared
     private let permissionService = PermissionService.shared
 
     init() {
         loadData()
+        loadPrivacyPreferences()
     }
 
     func loadData() {
@@ -33,6 +48,12 @@ final class PrivacyViewModel: @unchecked Sendable {
         calculatePrivacyScore()
     }
 
+    private func loadPrivacyPreferences() {
+        isOnDeviceMLEnabled = UserDefaults.standard.object(forKey: "isOnDeviceMLEnabled") as? Bool ?? true
+        isDataDonationEnabled = UserDefaults.standard.bool(forKey: "isDataDonationEnabled")
+        lastPrivacyAudit = UserDefaults.standard.object(forKey: "lastPrivacyAudit") as? Date
+    }
+
     private func calculatePrivacyScore() {
         var score = 100
 
@@ -40,8 +61,18 @@ final class PrivacyViewModel: @unchecked Sendable {
         let connectedCount = dataSources.filter { $0.isConnected }.count
         score -= connectedCount * 5
 
-        // Ensure minimum score of 70 for basic functionality
-        privacyScore = max(70, min(100, score))
+        // R2: Deduct for data donation
+        if isDataDonationEnabled {
+            score -= 10
+        }
+
+        // R2: Add points for on-device ML (bonus)
+        if isOnDeviceMLEnabled {
+            score = min(100, score + 5)
+        }
+
+        // Ensure minimum score
+        privacyScore = max(50, min(100, score))
     }
 
     func toggleDataSource(_ dataSource: DataSource) async {
@@ -63,8 +94,7 @@ final class PrivacyViewModel: @unchecked Sendable {
             case .voiceNotes:
                 granted = await permissionService.requestMicrophonePermission()
             case .health:
-                // HealthKit would need separate permission
-                granted = .denied
+                granted = await HealthKitService.shared.requestAuthorization() ? .authorized : .denied
             case .journal:
                 // Journal doesn't need special permission
                 granted = .authorized
@@ -76,7 +106,9 @@ final class PrivacyViewModel: @unchecked Sendable {
                 updated.lastSyncedAt = Date()
                 try? database.updateDataSource(updated)
             } else {
-                errorMessage = "Permission denied for \(dataSource.type.displayName). Please enable it in Settings."
+                await MainActor.run {
+                    errorMessage = "Permission denied for \(dataSource.type.displayName). Please enable it in Settings."
+                }
             }
         }
 
@@ -141,6 +173,40 @@ final class PrivacyViewModel: @unchecked Sendable {
         updated.dataPointCount = 0
         try? database.updateDataSource(updated)
         loadData()
+    }
+
+    func runPrivacyAudit() {
+        lastPrivacyAudit = Date()
+        UserDefaults.standard.set(lastPrivacyAudit, forKey: "lastPrivacyAudit")
+        loadData()
+    }
+
+    // R2: Privacy info
+    var onDeviceMLDescription: String {
+        if isOnDeviceMLEnabled {
+            return "All AI analysis happens on your device. Your emotional data never leaves your phone."
+        } else {
+            return "AI analysis may use cloud services. Enable on-device ML for maximum privacy."
+        }
+    }
+
+    var dataDonationDescription: String {
+        if isDataDonationEnabled {
+            return "Anonymous usage data helps improve Pulse. No personal information is shared."
+        } else {
+            return "Share anonymous data to help improve Pulse for everyone."
+        }
+    }
+
+    var privacyBadges: [String] {
+        var badges = ["Encrypted at rest"]
+        if isOnDeviceMLEnabled {
+            badges.append("On-device AI")
+        }
+        if !isDataDonationEnabled {
+            badges.append("No data sharing")
+        }
+        return badges
     }
 
     var connectedSourcesCount: Int {

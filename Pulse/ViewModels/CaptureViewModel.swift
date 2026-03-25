@@ -30,6 +30,12 @@ final class CaptureViewModel: @unchecked Sendable {
     var capturedImage: UIImage?
     var transcription = ""
 
+    // R2: Voice tone analysis
+    var voiceToneResult: VoiceToneResult?
+
+    // R2: Vision photo analysis
+    var visionResult: PhotoVisionResult?
+
     private let database = DatabaseService.shared
     private var audioRecorder: AVAudioRecorder?
     private var recordingTimer: Timer?
@@ -42,11 +48,13 @@ final class CaptureViewModel: @unchecked Sendable {
             errorMessage = nil
         }
 
-        let analysis = await AnalysisService.shared.analyzePhoto(image)
+        // R2: Use Vision-enhanced photo analysis
+        let (score, tags, vision) = await AnalysisService.shared.analyzePhotoWithVision(image)
 
         await MainActor.run {
             isAnalyzing = false
-            analysisResult = analysis
+            analysisResult = (score, tags)
+            visionResult = vision
             showAnalysisSheet = true
         }
     }
@@ -117,11 +125,24 @@ final class CaptureViewModel: @unchecked Sendable {
 
         do {
             transcription = try await AnalysisService.shared.transcribeAudio(url: url)
-            let analysis = await AnalysisService.shared.analyzeText(transcription)
+
+            // R2: Analyze voice tone (pitch, pace, stress)
+            let toneResult = await AnalysisService.shared.analyzeVoiceTone(audioURL: url)
+
+            let textAnalysis = await AnalysisService.shared.analyzeText(transcription)
+
+            // Combine text and tone analysis
+            var combinedScore = textAnalysis.score * 0.7
+            let toneStressAdjusted = toneResult.stressLevel * -0.3
+            combinedScore += toneStressAdjusted
+
+            var allTags = textAnalysis.tags
+            allTags.append(contentsOf: toneResult.emotionalTags)
 
             await MainActor.run {
                 isAnalyzing = false
-                analysisResult = analysis
+                analysisResult = (combinedScore, allTags)
+                voiceToneResult = toneResult
                 showAnalysisSheet = true
             }
         } catch {
@@ -188,6 +209,8 @@ final class CaptureViewModel: @unchecked Sendable {
         analysisResult = nil
         showAnalysisSheet = false
         errorMessage = nil
+        voiceToneResult = nil
+        visionResult = nil
     }
 
     var formattedDuration: String {

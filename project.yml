@@ -48,7 +48,8 @@ targets:
     entitlements:
       path: Pulse/Pulse.entitlements
       properties:
-        com.apple.developer.healthkit: false
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
     dependencies:
       - package: SQLite.swift
         product: SQLite

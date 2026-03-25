@@ -5,6 +5,11 @@ import Photos
 import UIKit
 import EventKit
 
+struct AnalysisContext: Sendable {
+    var healthData: [Date: HealthData] = [:]
+    var weatherData: [Date: WeatherData] = [:]
+}
+
 actor AnalysisService {
     static let shared = AnalysisService()
 
@@ -112,13 +117,74 @@ actor AnalysisService {
         }
     }
 
-    // MARK: - Photo Analysis (Simulated)
+    // MARK: - Voice Tone Analysis
+
+    func analyzeVoiceTone(audioURL: URL) async -> VoiceToneResult {
+        await VoiceToneAnalysisService.shared.analyzeTone(audioURL: audioURL)
+    }
+
+    // MARK: - Photo Analysis (Vision Framework)
+
+    func analyzePhotoWithVision(_ image: UIImage) async -> (score: Double, tags: [EmotionTag], visionResult: PhotoVisionResult) {
+        let visionResult = await VisionPhotoAnalysisService.shared.analyzePhoto(image)
+
+        // Generate emotional score from vision analysis
+        var score: Double = 0.5
+
+        // Scene type emotional influence
+        score += visionResult.sceneType.emotionalTone * 0.3
+
+        // Brightness influence (very dark or very bright can indicate specific moods)
+        let brightnessInfluence = abs(visionResult.brightness - 0.5)
+        score += (brightnessInfluence - 0.25) * 0.2
+
+        // People in photo tend to correlate with positive emotions
+        if visionResult.hasPeople {
+            score += 0.1
+        }
+
+        // Nature scenes tend to be positive
+        if visionResult.hasNature {
+            score += 0.15
+        }
+
+        // Normalize
+        score = max(-1, min(1, score))
+
+        // Generate tags from vision
+        var tags = generateEmotionTags(from: visionResult.sceneType.label, score: score)
+
+        // Add scene-specific tags
+        if visionResult.hasPeople {
+            tags.append(EmotionTag(category: .trust, confidence: 0.6, label: "Social"))
+        }
+        if visionResult.hasNature {
+            tags.append(EmotionTag(category: .joy, confidence: 0.5, label: "Nature"))
+        }
+        if visionResult.hasCityscape {
+            tags.append(EmotionTag(category: .anticipation, confidence: 0.4, label: "Urban"))
+        }
+        if visionResult.brightness > 0.7 {
+            tags.append(EmotionTag(category: .joy, confidence: 0.4, label: "Bright"))
+        } else if visionResult.brightness < 0.3 {
+            tags.append(EmotionTag(category: .sadness, confidence: 0.3, label: "Low light"))
+        }
+
+        // Deduplicate
+        var seen: [EmotionCategory] = []
+        tags = tags.filter { tag in
+            if seen.contains(tag.category) { return false }
+            seen.append(tag.category)
+            return true
+        }.prefix(4).map { $0 }
+
+        return (score, tags, visionResult)
+    }
+
+    // MARK: - Photo Analysis (Legacy)
 
     func analyzePhoto(_ image: UIImage) async -> (score: Double, tags: [EmotionTag]) {
-        // In production, this would use Apple Intelligence vision analysis
-        // For now, return neutral with random variance for demo
-        let score = Double.random(in: -0.3...0.7)
-        let tags = generateEmotionTags(from: "", score: score)
+        let (score, tags, _) = await analyzePhotoWithVision(image)
         return (score, tags)
     }
 
@@ -140,5 +206,97 @@ actor AnalysisService {
 
         tags.append(EmotionTag(category: .anticipation, confidence: 0.5, label: "Scheduled activities"))
         return (0.2, tags)
+    }
+
+    // MARK: - Health Data Analysis
+
+    func analyzeHealthData(_ health: HealthData) -> (score: Double, tags: [EmotionTag]) {
+        var tags: [EmotionTag] = []
+        var score = health.normalizedScore * 2 - 1 // Convert 0-1 to -1 to 1
+
+        if let hrv = health.hrvAverage {
+            if hrv > 60 {
+                tags.append(EmotionTag(category: .joy, confidence: 0.7, label: "High HRV"))
+            } else if hrv < 30 {
+                tags.append(EmotionTag(category: .fear, confidence: 0.5, label: "Low HRV"))
+            }
+        }
+
+        if let sleep = health.sleepDuration {
+            if sleep >= 7 {
+                tags.append(EmotionTag(category: .joy, confidence: 0.6, label: "Good sleep"))
+            } else if sleep < 6 {
+                tags.append(EmotionTag(category: .sadness, confidence: 0.5, label: "Poor sleep"))
+            }
+        }
+
+        if health.stepCount >= 10000 {
+            tags.append(EmotionTag(category: .joy, confidence: 0.5, label: "Active day"))
+        }
+
+        return (score, tags)
+    }
+
+    // MARK: - Weather Analysis
+
+    func analyzeWeatherData(_ weather: WeatherData) -> (score: Double, tags: [EmotionTag]) {
+        let score = weather.emotionalTone
+        var tags: [EmotionTag] = []
+
+        switch weather.condition {
+        case .sunny:
+            tags.append(EmotionTag(category: .joy, confidence: 0.6, label: "Sunny"))
+        case .rainy, .stormy:
+            tags.append(EmotionTag(category: .sadness, confidence: 0.5, label: "Rainy"))
+        case .cloudy:
+            tags.append(EmotionTag(category: .neutral, confidence: 0.4, label: "Cloudy"))
+        case .clear:
+            tags.append(EmotionTag(category: .joy, confidence: 0.4, label: "Clear"))
+        default:
+            break
+        }
+
+        return (score, tags)
+    }
+
+    // MARK: - Cross-Context Analysis
+
+    func generateCrossContextInsight(
+        moment: Moment,
+        context: AnalysisContext
+    ) async -> (score: Double, tags: [EmotionTag]) {
+        var scores: [Double] = []
+        var tags: [EmotionTag] = []
+
+        // Base moment analysis
+        scores.append(moment.emotionScore)
+
+        // Health context
+        let calendar = Calendar.current
+        let dayStart = calendar.startOfDay(for: moment.timestamp)
+        if let health = context.healthData[dayStart] {
+            let (healthScore, healthTags) = analyzeHealthData(health)
+            scores.append(healthScore * 0.3 + moment.emotionScore * 0.7)
+            tags.append(contentsOf: healthTags)
+        }
+
+        // Weather context
+        if let weather = context.weatherData[dayStart] {
+            let (weatherScore, weatherTags) = analyzeWeatherData(weather)
+            scores.append(weatherScore * 0.2 + moment.emotionScore * 0.8)
+            tags.append(contentsOf: weatherTags)
+        }
+
+        let finalScore = scores.reduce(0, +) / Double(scores.count)
+
+        // Deduplicate
+        var seen: [EmotionCategory] = []
+        tags = tags.filter { tag in
+            if seen.contains(tag.category) { return false }
+            seen.append(tag.category)
+            return true
+        }.prefix(4).map { $0 }
+
+        return (finalScore, tags)
     }
 }

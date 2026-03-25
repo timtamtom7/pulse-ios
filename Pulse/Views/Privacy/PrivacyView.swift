@@ -8,12 +8,67 @@ struct PrivacyView: View {
             ScrollView {
                 VStack(spacing: Theme.Spacing.sectionSpacing) {
                     // Privacy Score Card
-                    PrivacyScoreCard(score: viewModel.privacyScore)
+                    PrivacyScoreCard(score: viewModel.privacyScore, badges: viewModel.privacyBadges)
                         .padding(.horizontal, Theme.Spacing.screenMargin)
 
                     // Data Summary
                     DataSummaryCard(viewModel: viewModel)
                         .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                    // R2: Privacy Controls
+                    VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                        Text("Privacy Settings")
+                            .font(Theme.Typography.headlineFont)
+                            .foregroundColor(Theme.Colors.charcoal)
+                            .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        // On-Device ML Toggle
+                        PrivacyToggleRow(
+                            icon: "cpu",
+                            title: "On-Device AI",
+                            subtitle: viewModel.onDeviceMLDescription,
+                            isOn: Binding(
+                                get: { viewModel.isOnDeviceMLEnabled },
+                                set: { viewModel.isOnDeviceMLEnabled = $0 }
+                            )
+                        )
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        // Data Donation Toggle
+                        PrivacyToggleRow(
+                            icon: "heart.circle",
+                            title: "Data Donation",
+                            subtitle: viewModel.dataDonationDescription,
+                            isOn: Binding(
+                                get: { viewModel.isDataDonationEnabled },
+                                set: { viewModel.isDataDonationEnabled = $0 }
+                            )
+                        )
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        // Privacy Audit
+                        Button {
+                            viewModel.runPrivacyAudit()
+                        } label: {
+                            HStack {
+                                Image(systemName: "checkmark.shield")
+                                    .foregroundColor(Theme.Colors.mutedRose)
+                                Text("Run Privacy Audit")
+                                    .font(Theme.Typography.bodyFont)
+                                    .foregroundColor(Theme.Colors.charcoal)
+                                Spacer()
+                                if let lastAudit = viewModel.lastPrivacyAudit {
+                                    Text(lastAudit, style: .relative)
+                                        .font(Theme.Typography.captionFont)
+                                        .foregroundColor(Theme.Colors.warmGray)
+                                }
+                            }
+                            .padding(Theme.Spacing.md)
+                            .background(Theme.Colors.cardBackground)
+                            .cornerRadius(Theme.CornerRadius.medium)
+                        }
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+                    }
 
                     // Connected Sources
                     VStack(alignment: .leading, spacing: Theme.Spacing.md) {
@@ -120,8 +175,47 @@ struct PrivacyView: View {
     }
 }
 
+struct PrivacyToggleRow: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
+            HStack(spacing: Theme.Spacing.md) {
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(isOn ? Theme.Colors.mutedRose : Theme.Colors.warmGray)
+                    .frame(width: 32)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(Theme.Typography.bodyFont)
+                        .foregroundColor(Theme.Colors.charcoal)
+
+                    Text(subtitle)
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.warmGray)
+                        .lineLimit(2...3)
+                }
+
+                Spacer()
+
+                Toggle("", isOn: $isOn)
+                    .tint(Theme.Colors.mutedRose)
+                    .labelsHidden()
+            }
+        }
+        .padding(Theme.Spacing.md)
+        .background(Theme.Colors.cardBackground)
+        .cornerRadius(Theme.CornerRadius.medium)
+    }
+}
+
 struct PrivacyScoreCard: View {
     let score: Int
+    let badges: [String]
 
     var scoreColor: Color {
         switch score {
@@ -172,9 +266,19 @@ struct PrivacyScoreCard: View {
             }
             .frame(height: 8)
 
-            Text("Your data is protected with on-device processing and encryption")
-                .font(Theme.Typography.captionFont)
-                .foregroundColor(Theme.Colors.warmGray)
+            // Privacy badges
+            HStack(spacing: Theme.Spacing.sm) {
+                ForEach(badges, id: \.self) { badge in
+                    Text(badge)
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.mutedRose)
+                        .padding(.horizontal, Theme.Spacing.sm)
+                        .padding(.vertical, Theme.Spacing.xs)
+                        .background(Theme.Colors.softBlush)
+                        .cornerRadius(Theme.CornerRadius.small)
+                }
+                Spacer()
+            }
         }
         .padding(Theme.Spacing.cardPadding)
         .background(Theme.Colors.cardBackground)

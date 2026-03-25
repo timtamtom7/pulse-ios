@@ -1,4 +1,5 @@
 import Foundation
+import EventKit
 
 final class InsightService: @unchecked Sendable {
     static let shared = InsightService()
@@ -108,5 +109,116 @@ final class InsightService: @unchecked Sendable {
         case 3: return "evening"
         default: return "daily"
         }
+    }
+
+    // MARK: - R2: Deep AI Insights
+
+    func generateCorrelationInsights(correlations: [Correlation]) -> [Insight] {
+        return correlations.map { correlation in
+            Insight(
+                title: correlation.title,
+                body: correlation.description,
+                category: .correlation,
+                supportingDataPointCount: correlation.dataPointCount,
+                emotionScore: correlation.strength
+            )
+        }
+    }
+
+    func generateTriggerInsights(triggers: [TriggerInsight]) -> [Insight] {
+        return triggers.map { trigger in
+            Insight(
+                title: "Pattern: \(trigger.trigger)",
+                body: trigger.description,
+                category: .pattern,
+                supportingDataPointCount: trigger.frequency,
+                emotionScore: trigger.confidence
+            )
+        }
+    }
+
+    func generatePredictionInsights(prediction: MoodPrediction) -> Insight {
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "EEEE"
+        let dayName = dayFormatter.string(from: prediction.predictedDate)
+
+        return Insight(
+            title: "Tomorrow looks like \(prediction.similarDay ?? "a typical day")",
+            body: "\(prediction.reason). Confidence: \(Int(prediction.confidence * 100))%",
+            category: .general,
+            supportingDataPointCount: 1,
+            emotionScore: prediction.predictedScore
+        )
+    }
+
+    func generateWeeklyNarrativeReport(report: WeeklyReport) -> Insight {
+        return Insight(
+            title: "Your Week in Review",
+            body: report.narrative,
+            category: .general,
+            supportingDataPointCount: report.momentCount,
+            emotionScore: report.averageScore
+        )
+    }
+
+    // MARK: - R2: Health Correlation Insights
+
+    func generateHealthCorrelationInsight(
+        healthCorrelation: Correlation,
+        moments: [Moment],
+        healthData: [Date: HealthData]
+    ) -> Insight? {
+        guard healthCorrelation.correlationType == .health else { return nil }
+
+        let calendar = Calendar.current
+
+        var goodHealthGoodMood = 0
+        var goodHealthBadMood = 0
+        var poorHealthGoodMood = 0
+        var poorHealthBadMood = 0
+
+        for moment in moments {
+            let dayStart = calendar.startOfDay(for: moment.timestamp)
+            guard let health = healthData[dayStart] else { continue }
+
+            let healthScore = health.normalizedScore
+            let emotionScore = (moment.emotionScore + 1) / 2 // normalize to 0-1
+
+            if healthScore > 0.6 {
+                if emotionScore > 0.5 {
+                    goodHealthGoodMood += 1
+                } else {
+                    goodHealthBadMood += 1
+                }
+            } else if healthScore < 0.4 {
+                if emotionScore > 0.5 {
+                    poorHealthGoodMood += 1
+                } else {
+                    poorHealthBadMood += 1
+                }
+            }
+        }
+
+        let total = goodHealthGoodMood + goodHealthBadMood + poorHealthGoodMood + poorHealthBadMood
+        guard total >= 4 else { return nil }
+
+        let goodDaysCorrelation = Double(goodHealthGoodMood + poorHealthBadMood) / Double(total)
+
+        let body: String
+        if goodDaysCorrelation > 0.6 {
+            body = "There's a \(Int(goodDaysCorrelation * 100))% alignment between your physical health and emotional wellbeing. When your body feels good, your mood follows."
+        } else if goodDaysCorrelation > 0.4 {
+            body = "Your emotional state doesn't always track with physical health. \(Int((1-goodDaysCorrelation)*100))% of the time they diverge — you're more complex than a health metric."
+        } else {
+            body = "Interestingly, your emotional wellbeing sometimes moves opposite to your physical health metrics. Rest days can be emotionally valuable too."
+        }
+
+        return Insight(
+            title: "Body & Mind Connection",
+            body: body,
+            category: .correlation,
+            supportingDataPointCount: total,
+            emotionScore: (goodDaysCorrelation * 2) - 1
+        )
     }
 }
