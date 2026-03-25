@@ -144,9 +144,7 @@ struct TrustedCircleView: View {
 
     private var emptyMembersView: some View {
         VStack(spacing: Theme.Spacing.md) {
-            Image(systemName: "person.2.slash")
-                .font(.system(size: 40))
-                .foregroundColor(Theme.Colors.mutedRose.opacity(0.5))
+            PulseEmptyIllustration(size: 140)
 
             Text("No family members added yet")
                 .font(Theme.Typography.calloutFont)

@@ -156,9 +156,7 @@ struct SocialComparisonView: View {
 
     private var emptyStateView: some View {
         VStack(spacing: Theme.Spacing.lg) {
-            Image(systemName: "person.3.fill")
-                .font(.system(size: 48))
-                .foregroundColor(Theme.Colors.mutedRose.opacity(0.5))
+            PulseEmptyIllustration(size: 180)
 
             VStack(spacing: Theme.Spacing.sm) {
                 Text("Not Enough Data")
@@ -180,7 +178,7 @@ struct SocialComparisonView: View {
         isLoading = true
 
         Task {
-            let moments = (try? databaseService.fetchAllMoments()) ?? []
+            let moments = databaseService.fetchAllMoments()
             let aggregated = AggregatedMetrics.sample
 
             // Calculate user stats
