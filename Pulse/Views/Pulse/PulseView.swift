@@ -41,6 +41,15 @@ struct PulseView: View {
                             .padding(.horizontal, Theme.Spacing.screenMargin)
                     }
 
+                    // R4: Social Comparison
+                    if !viewModel.percentileComparisons.isEmpty {
+                        SocialComparisonSection(
+                            comparisons: viewModel.percentileComparisons,
+                            overallInsight: viewModel.overallPercentileInsight
+                        )
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+                    }
+
                     // Weekly Mood Ring
                     if !viewModel.weeklyMoodRing.isEmpty {
                         MoodRingView(tags: viewModel.weeklyMoodRing)
@@ -383,6 +392,222 @@ struct TriggerRow: View {
 
             Spacer()
         }
+    }
+}
+
+// MARK: - R4: Social Comparison Section
+
+struct SocialComparisonSection: View {
+    let comparisons: [PercentileComparison]
+    let overallInsight: PercentileInsight?
+    @State private var isExpanded = false
+
+    private var comparisonColor: Color {
+        guard let overall = overallInsight else { return Theme.Colors.warmGray }
+        switch overall.comparison.comparisonDirection {
+        case .aboveAverage: return Theme.Colors.calmSage
+        case .average: return Theme.Colors.gentleGold
+        case .belowAverage: return Theme.Colors.mutedRose
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+            // Header
+            HStack {
+                Image(systemName: "person.3.fill")
+                    .foregroundColor(Theme.Colors.warmGray)
+                    .font(.system(size: 18))
+
+                Text("How You Compare")
+                    .font(Theme.Typography.headlineFont)
+                    .foregroundColor(Theme.Colors.charcoal)
+
+                Spacer()
+
+                if let insight = overallInsight {
+                    Text("Top \(100 - insight.comparison.percentile)%")
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(comparisonColor)
+                        .cornerRadius(8)
+                }
+            }
+
+            // Overall percentile card
+            if let insight = overallInsight {
+                OverallPercentileCard(insight: insight)
+            }
+
+            // Individual comparisons (collapsed by default)
+            if isExpanded {
+                ForEach(comparisons) { comparison in
+                    PercentileComparisonRow(comparison: comparison)
+                }
+            }
+
+            // Toggle button
+            Button {
+                withAnimation(Theme.Animations.gentleEaseOut) {
+                    isExpanded.toggle()
+                }
+            } label: {
+                HStack {
+                    Text(isExpanded ? "Show less" : "View all comparisons")
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.warmGray)
+
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                        .font(.system(size: 12))
+                        .foregroundColor(Theme.Colors.warmGray)
+                }
+            }
+            .padding(.top, Theme.Spacing.xs)
+
+            // Privacy note
+            HStack(spacing: Theme.Spacing.xs) {
+                Image(systemName: "lock.fill")
+                    .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
+                    .font(.system(size: 10))
+
+                Text("Anonymized & aggregated — your data stays private")
+                    .font(.system(size: 10))
+                    .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
+            }
+            .padding(.top, Theme.Spacing.xs)
+        }
+        .padding(Theme.Spacing.cardPadding)
+        .background(Theme.Colors.cardBackground)
+        .cornerRadius(Theme.CornerRadius.card)
+        .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+    }
+}
+
+struct OverallPercentileCard: View {
+    let insight: PercentileInsight
+    @State private var appeared = false
+
+    private var color: Color {
+        switch insight.comparison.comparisonDirection {
+        case .aboveAverage: return Theme.Colors.calmSage
+        case .average: return Theme.Colors.gentleGold
+        case .belowAverage: return Theme.Colors.mutedRose
+        }
+    }
+
+    var body: some View {
+        HStack(spacing: Theme.Spacing.md) {
+            // Percentile ring
+            ZStack {
+                Circle()
+                    .stroke(Theme.Colors.softBlush, lineWidth: 6)
+                    .frame(width: 60, height: 60)
+
+                Circle()
+                    .trim(from: 0, to: CGFloat(insight.comparison.percentile) / 100)
+                    .stroke(color, style: StrokeStyle(lineWidth: 6, lineCap: .round))
+                    .frame(width: 60, height: 60)
+                    .rotationEffect(.degrees(-90))
+
+                Text("\(insight.comparison.percentile)%")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundColor(Theme.Colors.charcoal)
+            }
+
+            VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
+                Text("Your Wellness Index")
+                    .font(Theme.Typography.bodyFont)
+                    .foregroundColor(Theme.Colors.charcoal)
+
+                Text(insight.comparison.percentileLabel)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(color)
+
+                Text(insight.comparison.metricDescription)
+                    .font(Theme.Typography.captionFont)
+                    .foregroundColor(Theme.Colors.warmGray)
+                    .lineLimit(1)
+            }
+
+            Spacer()
+
+            Image(systemName: insight.comparison.comparisonDirection.icon)
+                .foregroundColor(color)
+                .font(.system(size: 24))
+        }
+        .opacity(appeared ? 1 : 0)
+        .offset(y: appeared ? 0 : 10)
+        .onAppear {
+            withAnimation(Theme.Animations.cardAppear.delay(0.1)) {
+                appeared = true
+            }
+        }
+    }
+}
+
+struct PercentileComparisonRow: View {
+    let comparison: PercentileComparison
+
+    private var color: Color {
+        switch comparison.comparisonDirection {
+        case .aboveAverage: return Theme.Colors.calmSage
+        case .average: return Theme.Colors.gentleGold
+        case .belowAverage: return Theme.Colors.mutedRose
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
+            HStack {
+                Text(comparison.metricName)
+                    .font(Theme.Typography.bodyFont)
+                    .foregroundColor(Theme.Colors.charcoal)
+
+                Spacer()
+
+                Text("\(comparison.percentile)%")
+                    .font(.system(size: 14, weight: .bold, design: .rounded))
+                    .foregroundColor(color)
+            }
+
+            // Mini bar chart
+            GeometryReader { geometry in
+                HStack(spacing: 2) {
+                    // Average marker
+                    let avgPosition = CGFloat((comparison.averageValue + 1) / 2) * geometry.size.width
+                    let userPosition = CGFloat((comparison.userValue + 1) / 2) * geometry.size.width
+
+                    // Background bar
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(Theme.Colors.softBlush)
+                        .frame(height: 8)
+
+                    // User position marker
+                    Circle()
+                        .fill(color)
+                        .frame(width: 10, height: 10)
+                        .offset(x: userPosition - geometry.size.width / 2)
+                }
+            }
+            .frame(height: 10)
+
+            HStack {
+                Text("vs \(Int(comparison.averageValue * 100))% avg")
+                    .font(.system(size: 10))
+                    .foregroundColor(Theme.Colors.warmGray)
+
+                Spacer()
+
+                Text("n=\(comparison.sampleSize.formatted()) users")
+                    .font(.system(size: 10))
+                    .foregroundColor(Theme.Colors.warmGray.opacity(0.7))
+            }
+        }
+        .padding(Theme.Spacing.sm)
+        .background(Theme.Colors.softBlush.opacity(0.5))
+        .cornerRadius(Theme.CornerRadius.small)
     }
 }
 

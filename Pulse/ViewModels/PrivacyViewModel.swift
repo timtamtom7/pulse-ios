@@ -28,12 +28,17 @@ final class PrivacyViewModel: @unchecked Sendable {
     var encryptionStatus: String = "Encrypted at rest"
     var lastPrivacyAudit: Date?
 
+    // R4: Trusted Circles
+    var circle: TrustedCircle = TrustedCircle()
+    private let circleService = TrustedCircleService.shared
+
     private let database = DatabaseService.shared
     private let permissionService = PermissionService.shared
 
     init() {
         loadData()
         loadPrivacyPreferences()
+        loadCircle()
     }
 
     func loadData() {
@@ -179,6 +184,26 @@ final class PrivacyViewModel: @unchecked Sendable {
         lastPrivacyAudit = Date()
         UserDefaults.standard.set(lastPrivacyAudit, forKey: "lastPrivacyAudit")
         loadData()
+    }
+
+    // R4: Trusted Circle Management
+    private func loadCircle() {
+        circle = circleService.circle
+    }
+
+    func addCircleMember(name: String, relationship: TrustedMember.Relationship) {
+        circleService.addMember(name: name, relationship: relationship)
+        circle = circleService.circle
+    }
+
+    func removeCircleMember(id: UUID) {
+        circleService.removeMember(id: id)
+        circle = circleService.circle
+    }
+
+    func toggleMember(id: UUID) {
+        circleService.toggleMember(id: id)
+        circle = circleService.circle
     }
 
     // R2: Privacy info

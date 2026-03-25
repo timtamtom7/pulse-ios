@@ -21,6 +21,10 @@ final class PulseViewModel: @unchecked Sendable {
     // R3: Mood Predictor
     var moodPrediction: MoodPrediction?
 
+    // R4: Social Comparison
+    var percentileComparisons: [PercentileComparison] = []
+    var overallPercentileInsight: PercentileInsight?
+
     private let database = DatabaseService.shared
 
     init() {
@@ -39,6 +43,11 @@ final class PulseViewModel: @unchecked Sendable {
         // R3: Run correlation analysis
         Task {
             await runCorrelationAnalysis(moments: allMoments)
+        }
+
+        // R4: Generate social comparison insights
+        Task {
+            await generateSocialComparisons(moments: allMoments)
         }
 
         isLoading = false
@@ -179,5 +188,29 @@ final class PulseViewModel: @unchecked Sendable {
 
     func refresh() {
         loadData()
+    }
+
+    // R4: Anonymous Social Comparison
+    private func generateSocialComparisons(moments: [Moment]) async {
+        guard moments.count >= 5 else { return }
+
+        let avgScore = moments.isEmpty ? 0.0 : moments.map(\.emotionScore).reduce(0, +) / Double(moments.count)
+
+        // Use aggregated metrics (in production, this would come from a privacy-safe server)
+        let aggregatedMetrics = AggregatedMetrics.sample
+
+        let comparisons = await SocialComparisonService.shared.generateComparisons(
+            userMoments: moments,
+            userStreak: currentStreak,
+            userAverageScore: avgScore,
+            aggregatedMetrics: aggregatedMetrics
+        )
+
+        let compositeInsight = await SocialComparisonService.shared.generateCompositeInsight(comparisons: comparisons)
+
+        await MainActor.run {
+            self.percentileComparisons = comparisons
+            self.overallPercentileInsight = compositeInsight
+        }
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0043D4BBF28A474746FC59B8 /* SocialComparisonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */; };
+		06CC71FF330CD853C92B43E5 /* SocialComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596540E43597E292C500ACF2 /* SocialComparisonView.swift */; };
+		0CFA3CA1F221ECDDE0C3E69C /* TrustedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */; };
 		0E371D53C11EE48CA0870769 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
 		157A7AEF4A28C9AB83CD3F18 /* CorrelationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3781E1F292504B35F2F88 /* CorrelationService.swift */; };
 		1788A3FD64252998F9112A94 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */; };
@@ -14,16 +17,24 @@
 		234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FD4D83DC12598E4BC4849 /* Theme.swift */; };
 		27CD7FFEFD0C655F6CCFACEC /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E322C2019CB345408743B8 /* AnalysisService.swift */; };
 		28B5EEB727E16919F33635A4 /* Insight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4011D2D440F9764EFC84E1 /* Insight.swift */; };
+		29229477F6786044E5FCEF49 /* MoodCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AB45CA9B1B4983C19ED39E /* MoodCheckInView.swift */; };
 		2AAFE14FB319A53254F1093C /* InsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B870C215C3FE255F8F339 /* InsightService.swift */; };
 		3486367464537B6192F7C2AF /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE9CD05DD0A6FAA15E6014 /* PulseApp.swift */; };
+		3A8F65C6B42C3D6AE0118D32 /* PulseWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */; };
 		3F9277DEBE1752A398274932 /* VoiceToneAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */; };
 		45F7A21CB8F6325B4A1B9D3E /* CaptureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EE17672365C4EC0C0CFF3 /* CaptureViewModel.swift */; };
+		47ED89D68BE5669563112E68 /* TrustedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB65267B447843BCF499F0A /* TrustedCircle.swift */; };
+		57072E4C423B06935F3FD407 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1258A0A545336B52705149A /* MoodEntry.swift */; };
 		5BDD1F393966644B3C719537 /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95445B2B13B1969650264AD8 /* DayDetailView.swift */; };
+		5CBB11DBC2E79B1875369AF0 /* PulseWatchWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAB57CBE4767902029CF42 /* PulseWatchWatchApp.swift */; };
 		616B1E15A99B07B4D65A228F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */; };
 		672556E24CD78D60071CB606 /* InsightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */; };
 		720275D747367AFB6F6D287F /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C053AF2606998CA1B8A2133 /* WeatherService.swift */; };
 		76CDD6E851D100BF9EACBF1A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA77E770FCC0922C835437 /* DataSource.swift */; };
+		76FD5A62F9BB857177C561E9 /* PulseWatchWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		82B786E07519577CF621D1C2 /* SocialComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A546BBA1451C31CAB1ED /* SocialComparison.swift */; };
 		8669EF8FAAFFF893EE0C07D5 /* DataBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */; };
+		8E925841A156BA2833E4C69B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA36EF3785615B971323AE /* ContentView.swift */; };
 		9532494D3B9F0FE5C4EBC6D8 /* VisionPhotoAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */; };
 		9A6B12B0FC6D383196BDAA37 /* JournalCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */; };
 		9FD4101D54375249279EF0C6 /* VoiceCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3A73C53D9E36D92E0FE98 /* VoiceCaptureView.swift */; };
@@ -40,6 +51,7 @@
 		D2A3859A7E3E9AB6F219D2F7 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512567B21DE8110034BAA32 /* Emotion.swift */; };
 		D3D896F0E0BAED28F257AB83 /* LoadingShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */; };
 		D7123D5AE753AAF85129B00D /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */; };
+		D7D58D3484234B061454A3E5 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADA188CF0828C3B20B6936 /* MoodEntry.swift */; };
 		D9D05972EF49B600D88EBB62 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EB1C61393EDF4F95D69B8 /* PulseView.swift */; };
 		DC07E6DA1C9C068A6A5BD0BF /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */; };
 		DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384598CDEFC74771C10C8245 /* CaptureView.swift */; };
@@ -48,6 +60,30 @@
 		FC72498FF4B1C21EAD896CDE /* EventKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4635DD68A298D928050264B /* EventKitService.swift */; };
 		FF152BDE6343A10B8627BC3C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = BC374109C44EED84E8317D4E /* SQLite */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B88AE5AB7F3E259385D9503 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84FEC84833EC6BF77563A3F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84FBB165FDFE446DB30781C8;
+			remoteInfo = PulseWatchWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F89E021BB2CC2C7FED689C6D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				76FD5A62F9BB857177C561E9 /* PulseWatchWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		040FD4D83DC12598E4BC4849 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -59,6 +95,9 @@
 		18A3A73C53D9E36D92E0FE98 /* VoiceCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCaptureView.swift; sourceTree = "<group>"; };
 		21E322C2019CB345408743B8 /* AnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisService.swift; sourceTree = "<group>"; };
 		2256E7D0435EA5F83232DEB7 /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
+		25AB45CA9B1B4983C19ED39E /* MoodCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCheckInView.swift; sourceTree = "<group>"; };
+		2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialComparisonService.swift; sourceTree = "<group>"; };
+		2E29E513C768BA241B51BD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCaptureView.swift; sourceTree = "<group>"; };
 		2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightCardView.swift; sourceTree = "<group>"; };
 		2F603A9B0A82C263E582C0A8 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
@@ -68,28 +107,41 @@
 		44C3781E1F292504B35F2F88 /* CorrelationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationService.swift; sourceTree = "<group>"; };
 		481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4D73F310B6D8564B1B597665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4DB65267B447843BCF499F0A /* TrustedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircle.swift; sourceTree = "<group>"; };
 		4F0EE17672365C4EC0C0CFF3 /* CaptureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewModel.swift; sourceTree = "<group>"; };
 		500E19296B68B9F1075119CE /* TimelineDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDayRow.swift; sourceTree = "<group>"; };
+		51DAB57CBE4767902029CF42 /* PulseWatchWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWatchWatchApp.swift; sourceTree = "<group>"; };
 		573A30438F425DA40663CA1E /* EmotionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionTag.swift; sourceTree = "<group>"; };
+		596540E43597E292C500ACF2 /* SocialComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialComparisonView.swift; sourceTree = "<group>"; };
 		5C053AF2606998CA1B8A2133 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceToneAnalysisService.swift; sourceTree = "<group>"; };
 		63CEC711FA7536F00870BC15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		658BC99EE552C7E68CBA5EB8 /* PulseWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73ADA188CF0828C3B20B6936 /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		73D5B744BB978121FC9A901D /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		7A5EAB4F417AD29E2156974E /* MomentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCard.swift; sourceTree = "<group>"; };
 		7D4011D2D440F9764EFC84E1 /* Insight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insight.swift; sourceTree = "<group>"; };
+		7F3C395B30D555628914AD59 /* PulseWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseWatch.entitlements; sourceTree = "<group>"; };
 		81328CA01D371325C80C4D9A /* PulseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseButton.swift; sourceTree = "<group>"; };
 		82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8930A546BBA1451C31CAB1ED /* SocialComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialComparison.swift; sourceTree = "<group>"; };
 		95445B2B13B1969650264AD8 /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
 		9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcesView.swift; sourceTree = "<group>"; };
+		A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseWatchWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1258A0A545336B52705149A /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		B4635DD68A298D928050264B /* EventKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitService.swift; sourceTree = "<group>"; };
 		B81B870C215C3FE255F8F339 /* InsightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightService.swift; sourceTree = "<group>"; };
 		BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPhotoAnalysisService.swift; sourceTree = "<group>"; };
+		BD9BF2FF9BE0D1226FC0438D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		C512567B21DE8110034BAA32 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBrowserView.swift; sourceTree = "<group>"; };
 		CBC8AE5BF7C0419018C1192A /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
+		D7DA36EF3785615B971323AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircleView.swift; sourceTree = "<group>"; };
 		EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		F1E46ABFF71739995361C240 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWatchApp.swift; sourceTree = "<group>"; };
 		FAAA77E770FCC0922C835437 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShimmer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,8 +190,18 @@
 			isa = PBXGroup;
 			children = (
 				13FEF2D2118D74C3572DF349 /* Pulse.app */,
+				658BC99EE552C7E68CBA5EB8 /* PulseWatch.app */,
+				A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		274EF6ED2A743B6167E891C2 /* TrustedCircle */ = {
+			isa = PBXGroup;
+			children = (
+				DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */,
+			);
+			path = TrustedCircle;
 			sourceTree = "<group>";
 		};
 		32EC50CFDC1D413FC5C20939 /* Components */ = {
@@ -151,6 +213,14 @@
 				81328CA01D371325C80C4D9A /* PulseButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		37A4F8C6CF458F9F24684F5D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1258A0A545336B52705149A /* MoodEntry.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		37AFBE729CA7579FBE93E934 /* Timeline */ = {
@@ -172,6 +242,17 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		465A92EF7ACBC085E532196D /* PulseWatchWatch */ = {
+			isa = PBXGroup;
+			children = (
+				2E29E513C768BA241B51BD55 /* Info.plist */,
+				D3EE31FF29D81218B643338F /* App */,
+				37A4F8C6CF458F9F24684F5D /* Models */,
+				CFF82D3B6F60F4A8C7B64B46 /* Views */,
+			);
+			path = PulseWatchWatch;
+			sourceTree = "<group>";
+		};
 		586910FA471E0EB8D08C5BD8 /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +261,14 @@
 				371FBDA090835F1474B67185 /* PrivacyView.swift */,
 			);
 			path = Privacy;
+			sourceTree = "<group>";
+		};
+		632B47CD5C08EAE7E79626D3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		65A4380EE57B8C733BB90DD3 /* ViewModels */ = {
@@ -193,6 +282,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		6A1178A4A2015A586DCDF653 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73ADA188CF0828C3B20B6936 /* MoodEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6EB33EDEBFF6F2EBBD69ADA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,16 +297,49 @@
 				C512567B21DE8110034BAA32 /* Emotion.swift */,
 				7D4011D2D440F9764EFC84E1 /* Insight.swift */,
 				0E648A9C43D1F9A20A2A0D80 /* Moment.swift */,
+				8930A546BBA1451C31CAB1ED /* SocialComparison.swift */,
+				4DB65267B447843BCF499F0A /* TrustedCircle.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		763911068183CE0A37BBD95B /* SocialComparison */ = {
+			isa = PBXGroup;
+			children = (
+				596540E43597E292C500ACF2 /* SocialComparisonView.swift */,
+			);
+			path = SocialComparison;
 			sourceTree = "<group>";
 		};
 		7A87E3B4AE2E59047EFB8F61 = {
 			isa = PBXGroup;
 			children = (
 				16C8605271C6A45188D07E13 /* Pulse */,
+				8575991D469966D1B48555F6 /* PulseWatch */,
+				465A92EF7ACBC085E532196D /* PulseWatchWatch */,
 				1FEE830988994786371D8E45 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		8575991D469966D1B48555F6 /* PulseWatch */ = {
+			isa = PBXGroup;
+			children = (
+				BD9BF2FF9BE0D1226FC0438D /* Info.plist */,
+				7F3C395B30D555628914AD59 /* PulseWatch.entitlements */,
+				632B47CD5C08EAE7E79626D3 /* App */,
+				6A1178A4A2015A586DCDF653 /* Models */,
+				A4CFDC79BB062C5FD9933ABE /* Views */,
+			);
+			path = PulseWatch;
+			sourceTree = "<group>";
+		};
+		A4CFDC79BB062C5FD9933ABE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA36EF3785615B971323AE /* ContentView.swift */,
+				25AB45CA9B1B4983C19ED39E /* MoodCheckInView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A8425254B8A66A20B4EBAA8A /* Views */ = {
@@ -219,7 +349,9 @@
 				32EC50CFDC1D413FC5C20939 /* Components */,
 				586910FA471E0EB8D08C5BD8 /* Privacy */,
 				AE42733BEFC73010704B43E1 /* Pulse */,
+				763911068183CE0A37BBD95B /* SocialComparison */,
 				37AFBE729CA7579FBE93E934 /* Timeline */,
+				274EF6ED2A743B6167E891C2 /* TrustedCircle */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +365,21 @@
 			path = Pulse;
 			sourceTree = "<group>";
 		};
+		CFF82D3B6F60F4A8C7B64B46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D3EE31FF29D81218B643338F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				51DAB57CBE4767902029CF42 /* PulseWatchWatchApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		DD8A68E94B2A5686C1410535 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +390,7 @@
 				0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */,
 				B81B870C215C3FE255F8F339 /* InsightService.swift */,
 				2F603A9B0A82C263E582C0A8 /* PermissionService.swift */,
+				2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */,
 				BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */,
 				63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */,
 				5C053AF2606998CA1B8A2133 /* WeatherService.swift */,
@@ -269,6 +417,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1FD59D79150B4CD00EEDF298 /* PulseWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD9785E53760A353FCF7DDA5 /* Build configuration list for PBXNativeTarget "PulseWatch" */;
+			buildPhases = (
+				88D6AF757036F12496010781 /* Sources */,
+				F89E021BB2CC2C7FED689C6D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56152CCB2DB58FA55F141225 /* PBXTargetDependency */,
+			);
+			name = PulseWatch;
+			productName = PulseWatch;
+			productReference = 658BC99EE552C7E68CBA5EB8 /* PulseWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84FBB165FDFE446DB30781C8 /* PulseWatchWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB8E2EF58F66DF6551DF9BB4 /* Build configuration list for PBXNativeTarget "PulseWatchWatch" */;
+			buildPhases = (
+				ADC83C632892B34A40E1AFE3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PulseWatchWatch;
+			productName = PulseWatchWatch;
+			productReference = A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CF79B1BAD3D70F54153FE0B3 /* Pulse */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9608D96881FD5C17BB380FA0 /* Build configuration list for PBXNativeTarget "Pulse" */;
@@ -298,6 +478,14 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					1FD59D79150B4CD00EEDF298 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					84FBB165FDFE446DB30781C8 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 					CF79B1BAD3D70F54153FE0B3 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
@@ -320,6 +508,8 @@
 			projectRoot = "";
 			targets = (
 				CF79B1BAD3D70F54153FE0B3 /* Pulse */,
+				1FD59D79150B4CD00EEDF298 /* PulseWatch */,
+				84FBB165FDFE446DB30781C8 /* PulseWatchWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -337,6 +527,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		88D6AF757036F12496010781 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E925841A156BA2833E4C69B /* ContentView.swift in Sources */,
+				29229477F6786044E5FCEF49 /* MoodCheckInView.swift in Sources */,
+				D7D58D3484234B061454A3E5 /* MoodEntry.swift in Sources */,
+				3A8F65C6B42C3D6AE0118D32 /* PulseWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADC83C632892B34A40E1AFE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57072E4C423B06935F3FD407 /* MoodEntry.swift in Sources */,
+				5CBB11DBC2E79B1875369AF0 /* PulseWatchWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D70CFAE236269B6E146109F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,10 +580,15 @@
 				BA5ACA379765CC007A443352 /* PulseButton.swift in Sources */,
 				D9D05972EF49B600D88EBB62 /* PulseView.swift in Sources */,
 				B0E83CEA79402D1A294D59B9 /* PulseViewModel.swift in Sources */,
+				82B786E07519577CF621D1C2 /* SocialComparison.swift in Sources */,
+				0043D4BBF28A474746FC59B8 /* SocialComparisonService.swift in Sources */,
+				06CC71FF330CD853C92B43E5 /* SocialComparisonView.swift in Sources */,
 				234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */,
 				0E371D53C11EE48CA0870769 /* TimelineDayRow.swift in Sources */,
 				ED73C53CBA56A1315EBD288E /* TimelineView.swift in Sources */,
 				1788A3FD64252998F9112A94 /* TimelineViewModel.swift in Sources */,
+				47ED89D68BE5669563112E68 /* TrustedCircle.swift in Sources */,
+				0CFA3CA1F221ECDDE0C3E69C /* TrustedCircleView.swift in Sources */,
 				9532494D3B9F0FE5C4EBC6D8 /* VisionPhotoAnalysisService.swift in Sources */,
 				9FD4101D54375249279EF0C6 /* VoiceCaptureView.swift in Sources */,
 				3F9277DEBE1752A398274932 /* VoiceToneAnalysisService.swift in Sources */,
@@ -383,7 +598,36 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		56152CCB2DB58FA55F141225 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84FBB165FDFE446DB30781C8 /* PulseWatchWatch */;
+			targetProxy = 2B88AE5AB7F3E259385D9503 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1307602CABC3521F8B1E15B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PulseWatch/PulseWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.watchkitapp;
+				PRODUCT_NAME = "Pulse Watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 		2E7048B1817FBF01C246A8F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -436,7 +680,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -444,6 +687,27 @@
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
+		};
+		3A4DD79F9F4C2FD1331A3460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PulseWatch/PulseWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.watchkitapp;
+				PRODUCT_NAME = "Pulse Watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
 		};
 		78CFDB6D85EA0A925D164718 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -470,6 +734,44 @@
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AC1F08B1676946C64F5C109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWatchWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.watchkitapp.watchkitextension;
+				PRODUCT_NAME = PulseWatchWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		855C9675441A8FEA26713AB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWatchWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.watchkitapp.watchkitextension;
+				PRODUCT_NAME = PulseWatchWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -560,7 +862,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -586,6 +887,24 @@
 			buildConfigurations = (
 				FA223E74BBF86702C72CD3A8 /* Debug */,
 				2E7048B1817FBF01C246A8F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EB8E2EF58F66DF6551DF9BB4 /* Build configuration list for PBXNativeTarget "PulseWatchWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				855C9675441A8FEA26713AB9 /* Debug */,
+				7AC1F08B1676946C64F5C109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD9785E53760A353FCF7DDA5 /* Build configuration list for PBXNativeTarget "PulseWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A4DD79F9F4C2FD1331A3460 /* Debug */,
+				1307602CABC3521F8B1E15B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

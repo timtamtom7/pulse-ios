@@ -15,6 +15,10 @@ struct PrivacyView: View {
                     DataSummaryCard(viewModel: viewModel)
                         .padding(.horizontal, Theme.Spacing.screenMargin)
 
+                    // R4: Trusted Circles
+                    TrustedCirclesCard(viewModel: viewModel)
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
                     // R2: Privacy Controls
                     VStack(alignment: .leading, spacing: Theme.Spacing.md) {
                         Text("Privacy Settings")
@@ -375,6 +379,281 @@ struct DataSourceRow: View {
         .padding(Theme.Spacing.md)
         .background(Theme.Colors.cardBackground)
         .cornerRadius(Theme.CornerRadius.medium)
+    }
+}
+
+// MARK: - R4: Trusted Circles Card
+
+struct TrustedCirclesCard: View {
+    @Bindable var viewModel: PrivacyViewModel
+    @State private var showingAddMember = false
+    @State private var showingShareSettings = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+            // Header
+            HStack {
+                Image(systemName: "person.2.circle.fill")
+                    .font(.system(size: 24))
+                    .foregroundColor(Theme.Colors.calmSage)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Trusted Circles")
+                        .font(Theme.Typography.headlineFont)
+                        .foregroundColor(Theme.Colors.charcoal)
+
+                    Text("Share aggregate wellness with family")
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.warmGray)
+                }
+
+                Spacer()
+
+                if viewModel.circle.activeMembersCount > 0 {
+                    Text("\(viewModel.circle.activeMembersCount) members")
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.mutedRose)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Theme.Colors.softBlush)
+                        .cornerRadius(8)
+                }
+            }
+
+            // Toggle sharing
+            HStack {
+                Text("Share with circle")
+                    .font(Theme.Typography.bodyFont)
+                    .foregroundColor(Theme.Colors.charcoal)
+
+                Spacer()
+
+                Toggle("", isOn: $viewModel.circle.isSharingEnabled)
+                    .tint(Theme.Colors.calmSage)
+                    .labelsHidden()
+            }
+            .padding(Theme.Spacing.sm)
+            .background(Theme.Colors.softBlush.opacity(0.5))
+            .cornerRadius(Theme.CornerRadius.small)
+
+            // Members list
+            if !viewModel.circle.members.isEmpty {
+                ForEach(viewModel.circle.members) { member in
+                    TrustedMemberRow(member: member, viewModel: viewModel)
+                }
+            } else {
+                Text("No family members added yet")
+                    .font(Theme.Typography.bodyFont)
+                    .foregroundColor(Theme.Colors.warmGray)
+                    .frame(maxWidth: .infinity)
+                    .padding(Theme.Spacing.lg)
+            }
+
+            // Add member button
+            Button {
+                showingAddMember = true
+            } label: {
+                HStack {
+                    Image(systemName: "person.badge.plus")
+                        .foregroundColor(Theme.Colors.mutedRose)
+                    Text("Add Family Member")
+                        .font(Theme.Typography.bodyFont)
+                        .foregroundColor(Theme.Colors.mutedRose)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(Theme.Spacing.md)
+                .background(Theme.Colors.softBlush.opacity(0.3))
+                .cornerRadius(Theme.CornerRadius.medium)
+            }
+
+            // Share settings link
+            if viewModel.circle.activeMembersCount > 0 {
+                Button {
+                    showingShareSettings = true
+                } label: {
+                    HStack {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(Theme.Colors.warmGray)
+                        Text("Share Settings")
+                            .font(Theme.Typography.bodyFont)
+                            .foregroundColor(Theme.Colors.warmGray)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 12))
+                            .foregroundColor(Theme.Colors.warmGray)
+                    }
+                    .padding(Theme.Spacing.sm)
+                }
+            }
+
+            // Privacy note
+            HStack(spacing: Theme.Spacing.xs) {
+                Image(systemName: "eye.slash.fill")
+                    .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
+                    .font(.system(size: 10))
+
+                Text("Individual moments are never shared — only aggregates")
+                    .font(.system(size: 10))
+                    .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
+            }
+        }
+        .padding(Theme.Spacing.cardPadding)
+        .background(Theme.Colors.cardBackground)
+        .cornerRadius(Theme.CornerRadius.card)
+        .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+        .sheet(isPresented: $showingAddMember) {
+            AddTrustedMemberSheet(viewModel: viewModel)
+        }
+        .sheet(isPresented: $showingShareSettings) {
+            ShareSettingsSheet(viewModel: viewModel)
+        }
+    }
+}
+
+struct TrustedMemberRow: View {
+    let member: TrustedMember
+    @Bindable var viewModel: PrivacyViewModel
+
+    var body: some View {
+        HStack(spacing: Theme.Spacing.md) {
+            // Avatar
+            Circle()
+                .fill(member.isEnabled ? Theme.Colors.calmSage.opacity(0.2) : Theme.Colors.warmGray.opacity(0.2))
+                .frame(width: 40, height: 40)
+                .overlay {
+                    Text(String(member.name.prefix(1)))
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(member.isEnabled ? Theme.Colors.calmSage : Theme.Colors.warmGray)
+                }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(member.name)
+                    .font(Theme.Typography.bodyFont)
+                    .foregroundColor(member.isEnabled ? Theme.Colors.charcoal : Theme.Colors.warmGray)
+
+                HStack(spacing: Theme.Spacing.xs) {
+                    Image(systemName: member.relationship.icon)
+                        .font(.system(size: 10))
+                    Text(member.relationship.rawValue)
+                        .font(.system(size: 11))
+                }
+                .foregroundColor(Theme.Colors.warmGray)
+            }
+
+            Spacer()
+
+            // Last shared
+            if let lastShare = member.lastSharedAt {
+                Text(lastShare, style: .relative)
+                    .font(.system(size: 10))
+                    .foregroundColor(Theme.Colors.warmGray)
+            }
+
+            // Toggle
+            Toggle("", isOn: Binding(
+                get: { member.isEnabled },
+                set: { _ in viewModel.toggleMember(id: member.id) }
+            ))
+            .tint(Theme.Colors.calmSage)
+            .labelsHidden()
+        }
+        .padding(Theme.Spacing.sm)
+        .background(Theme.Colors.softBlush.opacity(0.3))
+        .cornerRadius(Theme.CornerRadius.small)
+    }
+}
+
+struct AddTrustedMemberSheet: View {
+    @Bindable var viewModel: PrivacyViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State private var name = ""
+    @State private var selectedRelationship: TrustedMember.Relationship = .family
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Name") {
+                    TextField("e.g., Maria, Dad", text: $name)
+                        .textInputAutocapitalization(.words)
+                }
+
+                Section("Relationship") {
+                    Picker("Relationship", selection: $selectedRelationship) {
+                        ForEach(TrustedMember.Relationship.allCases, id: \.self) { rel in
+                            Label(rel.rawValue, systemImage: rel.icon)
+                                .tag(rel)
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
+                }
+
+                Section {
+                    Text("You'll share aggregate wellness data with this person — no individual moments will be visible to them.")
+                        .font(.caption)
+                        .foregroundColor(Theme.Colors.warmGray)
+                }
+            }
+            .navigationTitle("Add Family Member")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") { dismiss() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Add") {
+                        viewModel.addCircleMember(name: name, relationship: selectedRelationship)
+                        dismiss()
+                    }
+                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+            }
+        }
+    }
+}
+
+struct ShareSettingsSheet: View {
+    @Bindable var viewModel: PrivacyViewModel
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("What to Share") {
+                    Toggle("Average Mood Score", isOn: $viewModel.circle.shareSettings.showAverageScore)
+                    Toggle("Reflection Streak", isOn: $viewModel.circle.shareSettings.showStreak)
+                    Toggle("Dominant Emotion", isOn: $viewModel.circle.shareSettings.showDominantEmotion)
+                    Toggle("Weekly Insights", isOn: $viewModel.circle.shareSettings.showInsights)
+                    Toggle("Mood Trend", isOn: $viewModel.circle.shareSettings.showTrend)
+                }
+
+                Section("Share Frequency") {
+                    Picker("Frequency", selection: $viewModel.circle.shareSettings.shareFrequency) {
+                        ForEach(TrustedCircle.ShareSettings.ShareFrequency.allCases, id: \.self) { freq in
+                            Text(freq.rawValue).tag(freq)
+                        }
+                    }
+                }
+
+                Section {
+                    HStack(spacing: Theme.Spacing.xs) {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(Theme.Colors.calmSage)
+                            .font(.system(size: 12))
+
+                        Text("Individual moments are never shared — only aggregate summaries")
+                            .font(.caption)
+                            .foregroundColor(Theme.Colors.warmGray)
+                    }
+                }
+            }
+            .navigationTitle("Share Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
+        }
     }
 }
 
