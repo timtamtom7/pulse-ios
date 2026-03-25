@@ -1,9 +1,21 @@
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     @State private var selectedTab = 0
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
 
     var body: some View {
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                iPadContentView
+            } else {
+                iPhoneContentView
+            }
+        }
+    }
+
+    private var iPhoneContentView: some View {
         TabView(selection: $selectedTab) {
             PulseView()
                 .tabItem {
@@ -35,6 +47,57 @@ struct ContentView: View {
                     Label("Privacy", systemImage: "lock.shield")
                 }
                 .tag(4)
+        }
+        .tint(Theme.Colors.mutedRose)
+    }
+
+    private var iPadContentView: some View {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            // Sidebar
+            List {
+                NavigationLink(destination: PulseView()) {
+                    Label("Pulse", systemImage: "heart.fill")
+                }
+
+                NavigationLink(destination: TimelineView()) {
+                    Label("Timeline", systemImage: "calendar")
+                }
+
+                NavigationLink(destination: SocialComparisonView()) {
+                    Label("Compare", systemImage: "person.3.fill")
+                }
+
+                NavigationLink(destination: CaptureView()) {
+                    Label("Capture", systemImage: "plus.circle.fill")
+                }
+
+                NavigationLink(destination: PrivacyView()) {
+                    Label("Privacy", systemImage: "lock.shield")
+                }
+
+                NavigationLink(destination: TrustedCircleView()) {
+                    Label("Trusted Circle", systemImage: "figure.2.and.child.holdinghands")
+                }
+            }
+            .navigationTitle("Pulse")
+            .navigationSplitViewColumnWidth(min: 220, ideal: 260, max: 300)
+        } detail: {
+            // Detail column
+            NavigationStack {
+                ZStack {
+                    Theme.Colors.primaryBackground.ignoresSafeArea()
+                    VStack(spacing: Theme.Spacing.lg) {
+                        Image(systemName: "heart.fill")
+                            .font(.system(size: 72))
+                            .foregroundColor(Theme.Colors.mutedRose.opacity(0.2))
+                        Text("Select a view from the sidebar")
+                            .font(.title3)
+                            .foregroundColor(Theme.Colors.secondaryText)
+                    }
+                }
+                .navigationTitle("Pulse")
+                .navigationBarTitleDisplayMode(.large)
+            }
         }
         .tint(Theme.Colors.mutedRose)
     }
