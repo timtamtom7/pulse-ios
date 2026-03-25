@@ -1,4 +1,5 @@
 import Foundation
+import EventKit
 
 struct Correlation: Identifiable, Sendable {
     let id = UUID()
@@ -539,7 +540,7 @@ actor CorrelationService {
         let recentMoments = moments.prefix(7)
         if !recentMoments.isEmpty {
             let recentAvg = recentMoments.map(\.emotionScore).reduce(0, +) / Double(recentMoments.count)
-            let adjustedScore = (avgScore + recentAvg) / 2
+            let _ = (avgScore + recentAvg) / 2 // blended average for future use
             confidence *= 0.8
         }
 
@@ -555,4 +556,3 @@ actor CorrelationService {
     }
 }
 
-import EventKit
