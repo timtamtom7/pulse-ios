@@ -12,6 +12,7 @@
 		039CB815481E2C53B66A2AC2 /* FamilyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD1B8772FA16C72B000C10 /* FamilyCircleView.swift */; };
 		06CC71FF330CD853C92B43E5 /* SocialComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596540E43597E292C500ACF2 /* SocialComparisonView.swift */; };
 		084371498F179B07F879DD15 /* Insight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4011D2D440F9764EFC84E1 /* Insight.swift */; };
+		09AC6C89C2494159C8A54331 /* AppStoreListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE972685392B30B7E85FE8 /* AppStoreListingView.swift */; };
 		0CFA3CA1F221ECDDE0C3E69C /* TrustedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */; };
 		0D74C37CA50A057BC28B9C2C /* LegacyExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F3A405AD204A7C9676038 /* LegacyExportService.swift */; };
 		0E371D53C11EE48CA0870769 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
@@ -78,10 +79,13 @@
 		8FE8596C346D6086A40FFAD9 /* EmotionalForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */; };
 		907C4598115384BE9DF2BE75 /* TrustedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */; };
 		950E805EBAE66D62E3F1410C /* MemorialModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED62F740B1896FD7AD883C4 /* MemorialModeView.swift */; };
+		952206C637CD160DD2A3819E /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B85B6F1ED8972408A5A1F2 /* SubscriptionsView.swift */; };
 		9532494D3B9F0FE5C4EBC6D8 /* VisionPhotoAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */; };
 		97C52A88B5970C8DB5B37E11 /* EmotionalForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */; };
+		98BFDA00EC839232343D5039 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697F1425B55372B0607D34D /* SubscriptionService.swift */; };
 		9A6B12B0FC6D383196BDAA37 /* JournalCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */; };
 		9AEBE2E9C049E13ABA384247 /* SocialComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596540E43597E292C500ACF2 /* SocialComparisonView.swift */; };
+		9BC76552D166A19E2DF5B791 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697F1425B55372B0607D34D /* SubscriptionService.swift */; };
 		9FD4101D54375249279EF0C6 /* VoiceCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3A73C53D9E36D92E0FE98 /* VoiceCaptureView.swift */; };
 		A37A6E444579DEEF7A4177B9 /* LoadingShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */; };
 		A6A67B77283BB5D065DA2CDD /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F603A9B0A82C263E582C0A8 /* PermissionService.swift */; };
@@ -100,11 +104,14 @@
 		C1B8E423639D66F5B374B533 /* DataSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */; };
 		C5D15DAA355EF9E57C7AA298 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D5B744BB978121FC9A901D /* TimelineView.swift */; };
 		C63B5C54385343A886B638BB /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E46ABFF71739995361C240 /* DatabaseService.swift */; };
+		C9679884DCC501C88EA42D19 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A23CE7AFC7365D859C2EE42 /* LegalView.swift */; };
 		CB963887295ADC3C03277AEA /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36015946ECDE882DEBEFDD16 /* PrivacyViewModel.swift */; };
 		CBBD0A2CE69D649CF63EB551 /* InsightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */; };
 		CCBBCCE9EF0DCC3E959B2049 /* HandoffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A542665DE2789250793968 /* HandoffManager.swift */; };
 		CE524DF315968CC678949C13 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */; };
 		D161C2713A41D634B3497F76 /* SocialComparisonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */; };
+		D1C41CA7E4290F9394CF898E /* AppStoreListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE972685392B30B7E85FE8 /* AppStoreListingView.swift */; };
+		D23C6557928F6622D647914B /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A23CE7AFC7365D859C2EE42 /* LegalView.swift */; };
 		D2A3859A7E3E9AB6F219D2F7 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512567B21DE8110034BAA32 /* Emotion.swift */; };
 		D3D896F0E0BAED28F257AB83 /* LoadingShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */; };
 		D44CC2AF4FDE17709E43D4DA /* VisionPhotoAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */; };
@@ -116,6 +123,7 @@
 		D9D05972EF49B600D88EBB62 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EB1C61393EDF4F95D69B8 /* PulseView.swift */; };
 		DC07E6DA1C9C068A6A5BD0BF /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */; };
 		DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384598CDEFC74771C10C8245 /* CaptureView.swift */; };
+		E0432D85606FB89DD3E81C45 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B85B6F1ED8972408A5A1F2 /* SubscriptionsView.swift */; };
 		E059AD3AD36A43793698B5CF /* FamilyCircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62E6737234E75C572C07C8 /* FamilyCircleService.swift */; };
 		E4CEF05165AA540FD4797616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */; };
 		E78221654DE7501B3F1B3387 /* WatchSharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D4BED31CCDE6563507384 /* WatchSharedModels.swift */; };
@@ -180,7 +188,9 @@
 		371FBDA090835F1474B67185 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		384598CDEFC74771C10C8245 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		44C3781E1F292504B35F2F88 /* CorrelationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationService.swift; sourceTree = "<group>"; };
+		4697F1425B55372B0607D34D /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4A23CE7AFC7365D859C2EE42 /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
 		4D73F310B6D8564B1B597665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4DB65267B447843BCF499F0A /* TrustedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircle.swift; sourceTree = "<group>"; };
 		4ED62F740B1896FD7AD883C4 /* MemorialModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorialModeView.swift; sourceTree = "<group>"; };
@@ -210,6 +220,7 @@
 		9EAD1B8772FA16C72B000C10 /* FamilyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCircleView.swift; sourceTree = "<group>"; };
 		A10844D0530C016286520DB7 /* MemorialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorialService.swift; sourceTree = "<group>"; };
 		A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionalForecastService.swift; sourceTree = "<group>"; };
+		A6B85B6F1ED8972408A5A1F2 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
 		A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseWatchWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1258A0A545336B52705149A /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		B4635DD68A298D928050264B /* EventKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitService.swift; sourceTree = "<group>"; };
@@ -225,6 +236,7 @@
 		D7DA36EF3785615B971323AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircleView.swift; sourceTree = "<group>"; };
 		E4D10739317FA6FB82733079 /* PulseMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMacApp.swift; sourceTree = "<group>"; };
+		E7CE972685392B30B7E85FE8 /* AppStoreListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreListingView.swift; sourceTree = "<group>"; };
 		EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		F1E46ABFF71739995361C240 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWatchApp.swift; sourceTree = "<group>"; };
@@ -373,10 +385,13 @@
 		586910FA471E0EB8D08C5BD8 /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE972685392B30B7E85FE8 /* AppStoreListingView.swift */,
 				CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */,
 				9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */,
 				C683B34607D15BC8E956F8C4 /* LegacyExportView.swift */,
+				4A23CE7AFC7365D859C2EE42 /* LegalView.swift */,
 				371FBDA090835F1474B67185 /* PrivacyView.swift */,
+				A6B85B6F1ED8972408A5A1F2 /* SubscriptionsView.swift */,
 			);
 			path = Privacy;
 			sourceTree = "<group>";
@@ -533,6 +548,7 @@
 				A10844D0530C016286520DB7 /* MemorialService.swift */,
 				2F603A9B0A82C263E582C0A8 /* PermissionService.swift */,
 				2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */,
+				4697F1425B55372B0607D34D /* SubscriptionService.swift */,
 				BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */,
 				63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */,
 				35846001AEA3EAA9575911A8 /* WatchComplicationService.swift */,
@@ -710,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50403FB23A220E1A2BB2395F /* AnalysisService.swift in Sources */,
+				09AC6C89C2494159C8A54331 /* AppStoreListingView.swift in Sources */,
 				EB6AD4C14341A11B0A9AD363 /* CaptureView.swift in Sources */,
 				60B710D2153605BF4A50CEDD /* CaptureViewModel.swift in Sources */,
 				2766DC33A687B8203CFEA665 /* ContentView.swift in Sources */,
@@ -734,6 +751,7 @@
 				2022E2F2F29CA40EAE15181D /* JournalCaptureView.swift in Sources */,
 				0D74C37CA50A057BC28B9C2C /* LegacyExportService.swift in Sources */,
 				2FCB852D48433983414D8F69 /* LegacyExportView.swift in Sources */,
+				D23C6557928F6622D647914B /* LegalView.swift in Sources */,
 				A37A6E444579DEEF7A4177B9 /* LoadingShimmer.swift in Sources */,
 				950E805EBAE66D62E3F1410C /* MemorialModeView.swift in Sources */,
 				FB6C041B52DA3B2BF9622651 /* MemorialService.swift in Sources */,
@@ -752,6 +770,8 @@
 				561DE66A2F39D618F0843A75 /* SocialComparison.swift in Sources */,
 				D161C2713A41D634B3497F76 /* SocialComparisonService.swift in Sources */,
 				9AEBE2E9C049E13ABA384247 /* SocialComparisonView.swift in Sources */,
+				9BC76552D166A19E2DF5B791 /* SubscriptionService.swift in Sources */,
+				E0432D85606FB89DD3E81C45 /* SubscriptionsView.swift in Sources */,
 				B877228E03D5523E50E25BD8 /* Theme.swift in Sources */,
 				2657123E685AA51E56DA94D0 /* TimelineDayRow.swift in Sources */,
 				C5D15DAA355EF9E57C7AA298 /* TimelineView.swift in Sources */,
@@ -792,6 +812,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27CD7FFEFD0C655F6CCFACEC /* AnalysisService.swift in Sources */,
+				D1C41CA7E4290F9394CF898E /* AppStoreListingView.swift in Sources */,
 				DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */,
 				45F7A21CB8F6325B4A1B9D3E /* CaptureViewModel.swift in Sources */,
 				EC1885A3538327B6CABB18A9 /* ContentView.swift in Sources */,
@@ -816,6 +837,7 @@
 				9A6B12B0FC6D383196BDAA37 /* JournalCaptureView.swift in Sources */,
 				D84D1095068E3C0D3E9F827F /* LegacyExportService.swift in Sources */,
 				41ABA8846C24E95F65C652E5 /* LegacyExportView.swift in Sources */,
+				C9679884DCC501C88EA42D19 /* LegalView.swift in Sources */,
 				D3D896F0E0BAED28F257AB83 /* LoadingShimmer.swift in Sources */,
 				894EA365FB46E6F39B44AF79 /* MemorialModeView.swift in Sources */,
 				152855E4416B98B221DDA5D3 /* MemorialService.swift in Sources */,
@@ -833,6 +855,8 @@
 				82B786E07519577CF621D1C2 /* SocialComparison.swift in Sources */,
 				0043D4BBF28A474746FC59B8 /* SocialComparisonService.swift in Sources */,
 				06CC71FF330CD853C92B43E5 /* SocialComparisonView.swift in Sources */,
+				98BFDA00EC839232343D5039 /* SubscriptionService.swift in Sources */,
+				952206C637CD160DD2A3819E /* SubscriptionsView.swift in Sources */,
 				234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */,
 				0E371D53C11EE48CA0870769 /* TimelineDayRow.swift in Sources */,
 				ED73C53CBA56A1315EBD288E /* TimelineView.swift in Sources */,

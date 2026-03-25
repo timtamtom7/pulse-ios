@@ -2,11 +2,18 @@ import SwiftUI
 
 struct PrivacyView: View {
     @State private var viewModel = PrivacyViewModel()
+    @State private var subscriptionService = SubscriptionService.shared
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Theme.Spacing.sectionSpacing) {
+                    // R10: Pulse+ Upgrade Card
+                    if !subscriptionService.isPro {
+                        PulseUpgradeCard()
+                            .padding(.horizontal, Theme.Spacing.screenMargin)
+                    }
+
                     // Privacy Score Card
                     PrivacyScoreCard(score: viewModel.privacyScore, badges: viewModel.privacyBadges)
                         .padding(.horizontal, Theme.Spacing.screenMargin)
@@ -169,6 +176,74 @@ struct PrivacyView: View {
                                     .font(Theme.Typography.bodyFont)
                                     .foregroundColor(Theme.Colors.deepEmber)
                                 Spacer()
+                            }
+                            .padding(Theme.Spacing.md)
+                            .background(Theme.Colors.cardBackground)
+                            .cornerRadius(Theme.CornerRadius.medium)
+                        }
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+                    }
+
+                    // R10: Subscriptions, Legal, App Store
+                    VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                        Text("About Pulse")
+                            .font(Theme.Typography.headlineFont)
+                            .foregroundColor(Theme.Colors.charcoal)
+                            .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        NavigationLink {
+                            SubscriptionsView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "crown.fill")
+                                    .foregroundColor(Theme.Colors.gentleGold)
+                                Text("Pulse+ Subscription")
+                                    .font(Theme.Typography.bodyFont)
+                                    .foregroundColor(Theme.Colors.charcoal)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Theme.Colors.warmGray)
+                            }
+                            .padding(Theme.Spacing.md)
+                            .background(Theme.Colors.cardBackground)
+                            .cornerRadius(Theme.CornerRadius.medium)
+                        }
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        NavigationLink {
+                            AppStoreListingView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "app.badge.fill")
+                                    .foregroundColor(Theme.Colors.primaryAccent)
+                                Text("App Store Listing")
+                                    .font(Theme.Typography.bodyFont)
+                                    .foregroundColor(Theme.Colors.charcoal)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Theme.Colors.warmGray)
+                            }
+                            .padding(Theme.Spacing.md)
+                            .background(Theme.Colors.cardBackground)
+                            .cornerRadius(Theme.CornerRadius.medium)
+                        }
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        NavigationLink {
+                            LegalView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "doc.text.fill")
+                                    .foregroundColor(Theme.Colors.warmGray)
+                                Text("Privacy Policy & Terms")
+                                    .font(Theme.Typography.bodyFont)
+                                    .foregroundColor(Theme.Colors.charcoal)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Theme.Colors.warmGray)
                             }
                             .padding(Theme.Spacing.md)
                             .background(Theme.Colors.cardBackground)
@@ -677,4 +752,66 @@ struct ShareSettingsSheet: View {
 
 #Preview {
     PrivacyView()
+}
+
+// MARK: - R10: Pulse Upgrade Card
+
+struct PulseUpgradeCard: View {
+    @State private var subscriptionService = SubscriptionService.shared
+
+    var body: some View {
+        VStack(spacing: Theme.Spacing.md) {
+            HStack(spacing: Theme.Spacing.md) {
+                ZStack {
+                    Circle()
+                        .fill(Theme.Colors.gentleGold.opacity(0.15))
+                        .frame(width: 56, height: 56)
+
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(Theme.Colors.gentleGold)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Upgrade to Pulse+")
+                        .font(Theme.Typography.headlineFont)
+                        .foregroundColor(Theme.Colors.charcoal)
+
+                    Text("Unlimited captures, family circle & legacy export")
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.warmGray)
+                }
+
+                Spacer()
+            }
+
+            HStack(spacing: Theme.Spacing.md) {
+                NavigationLink {
+                    SubscriptionsView()
+                } label: {
+                    Text("See Plans")
+                        .font(Theme.Typography.calloutFont)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Theme.Colors.cardBackground)
+                        .frame(maxWidth: .infinity)
+                        .padding(Theme.Spacing.sm)
+                        .background(Theme.Colors.gentleGold)
+                        .cornerRadius(Theme.CornerRadius.button)
+                }
+            }
+        }
+        .padding(Theme.Spacing.cardPadding)
+        .background(
+            LinearGradient(
+                colors: [Theme.Colors.gentleGold.opacity(0.1), Theme.Colors.cardBackground],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.CornerRadius.card)
+                .stroke(Theme.Colors.gentleGold.opacity(0.3), lineWidth: 1)
+        )
+        .cornerRadius(Theme.CornerRadius.card)
+    }
 }
