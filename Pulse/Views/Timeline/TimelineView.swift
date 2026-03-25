@@ -29,18 +29,23 @@ struct TimelineView: View {
                 .padding(.vertical, Theme.Spacing.md)
 
                 ScrollView {
-                    LazyVStack(spacing: Theme.Spacing.sm) {
-                        ForEach(viewModel.daySummaries) { summary in
-                            TimelineDayRow(summary: summary)
-                                .onTapGesture {
-                                    selectedDaySummary = summary
-                                    viewModel.selectDate(summary.date)
-                                    showingDayDetail = true
-                                }
+                    if viewModel.daySummaries.isEmpty && !viewModel.isLoading {
+                        TimelineEmptyState()
+                            .padding(.top, Theme.Spacing.xxl)
+                    } else {
+                        LazyVStack(spacing: Theme.Spacing.sm) {
+                            ForEach(viewModel.daySummaries) { summary in
+                                TimelineDayRow(summary: summary)
+                                    .onTapGesture {
+                                        selectedDaySummary = summary
+                                        viewModel.selectDate(summary.date)
+                                        showingDayDetail = true
+                                    }
+                            }
                         }
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
                     }
-                    .padding(.horizontal, Theme.Spacing.screenMargin)
-                    .padding(.bottom, Theme.Spacing.xxl)
+                    Spacer(minLength: Theme.Spacing.xxl)
                 }
             }
             .background(Theme.Colors.primaryBackground)
@@ -138,4 +143,28 @@ struct EmotionBubbleView: View {
 
 #Preview {
     TimelineView()
+}
+
+// MARK: - Empty State
+
+struct TimelineEmptyState: View {
+    var body: some View {
+        VStack(spacing: Theme.Spacing.lg) {
+            Image(systemName: "calendar")
+                .font(.system(size: 56))
+                .foregroundColor(Theme.Colors.mutedRose.opacity(0.5))
+
+            Text("Your Timeline is Empty")
+                .font(Theme.Typography.headlineFont)
+                .foregroundColor(Theme.Colors.charcoal)
+
+            Text("Capture moments to see your emotional patterns over time. Each moment adds a piece to your personal story.")
+                .font(Theme.Typography.bodyFont)
+                .foregroundColor(Theme.Colors.warmGray)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, Theme.Spacing.xl)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, Theme.Spacing.xl)
+    }
 }

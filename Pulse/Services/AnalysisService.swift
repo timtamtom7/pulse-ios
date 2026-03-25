@@ -10,6 +10,26 @@ struct AnalysisContext: Sendable {
     var weatherData: [Date: WeatherData] = [:]
 }
 
+enum AnalysisError: LocalizedError {
+    case speechRecognizerUnavailable
+    case photoAnalysisFailed
+    case audioRecordingFailed
+    case unknown
+
+    var errorDescription: String? {
+        switch self {
+        case .speechRecognizerUnavailable:
+            return "Speech recognition is not available on this device. Please check your settings."
+        case .photoAnalysisFailed:
+            return "We couldn't analyze your photo. Please try again."
+        case .audioRecordingFailed:
+            return "Recording failed. Please check microphone permissions."
+        case .unknown:
+            return "Something went wrong during analysis. Please try again."
+        }
+    }
+}
+
 actor AnalysisService {
     static let shared = AnalysisService()
 
@@ -98,22 +118,17 @@ actor AnalysisService {
     // MARK: - Voice Transcription
 
     func transcribeAudio(url: URL) async throws -> String {
-        let recognizer = SFSpeechRecognizer()
+        guard let recognizer = SFSpeechRecognizer(), recognizer.isAvailable else {
+            throw AnalysisError.speechRecognizerUnavailable
+        }
+
         let request = SFSpeechURLRecognitionRequest(url: url)
         request.shouldReportPartialResults = false
 
-        return try await withCheckedThrowingContinuation { continuation in
-            recognizer?.recognitionTask(with: request) { result, error in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                if let result = result, result.isFinal {
-                    continuation.resume(returning: result.bestTranscription.formattedString)
-                } else if result == nil {
-                    continuation.resume(returning: "")
-                }
-            }
+        // Simple wrapper: use a shared Task reference for timeout cancellation
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
+            let wrapper = TranscriptionWrapper(continuation: continuation)
+            wrapper.startRecognition(recognizer: recognizer, request: request)
         }
     }
 
@@ -298,5 +313,89 @@ actor AnalysisService {
         }.prefix(4).map { $0 }
 
         return (finalScore, tags)
+    }
+}
+
+// MARK: - Transcription Wrapper
+
+private final class TranscriptionWrapper: NSObject, @unchecked Sendable {
+    private let continuation: CheckedContinuation<String, Error>
+    private var task: SFSpeechRecognitionTask?
+    private let stateLock = NSLock()
+    private var isFinished = false
+
+    init(continuation: CheckedContinuation<String, Error>) {
+        self.continuation = continuation
+        super.init()
+    }
+
+    func startRecognition(recognizer: SFSpeechRecognizer, request: SFSpeechURLRecognitionRequest) {
+        let delegate = TranscriptionHandlerWrapper(wrapper: self)
+        task = recognizer.recognitionTask(with: request, delegate: delegate)
+
+        // Schedule timeout
+        Task { [weak self] in
+            try? await Task.sleep(for: .seconds(30))
+            self?.handleTimeout()
+        }
+    }
+
+    fileprivate func handleResult(_ result: String) {
+        resumeContinuation { $0.resume(returning: result) }
+    }
+
+    fileprivate func handleError(_ error: Error) {
+        resumeContinuation { $0.resume(throwing: error) }
+    }
+
+    fileprivate func handleCancel() {
+        resumeContinuation { $0.resume(returning: "") }
+    }
+
+    private func handleTimeout() {
+        stateLock.lock()
+        guard !isFinished else {
+            stateLock.unlock()
+            return
+        }
+        isFinished = true
+        stateLock.unlock()
+
+        task?.cancel()
+        continuation.resume(returning: "")
+    }
+
+    private func resumeContinuation(_ block: (CheckedContinuation<String, Error>) -> Void) {
+        stateLock.lock()
+        guard !isFinished else {
+            stateLock.unlock()
+            return
+        }
+        isFinished = true
+        stateLock.unlock()
+
+        block(continuation)
+    }
+}
+
+// Thread-safe delegate wrapper
+private final class TranscriptionHandlerWrapper: NSObject, SFSpeechRecognitionTaskDelegate {
+    private let wrapper: TranscriptionWrapper
+
+    init(wrapper: TranscriptionWrapper) {
+        self.wrapper = wrapper
+        super.init()
+    }
+
+    nonisolated func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishRecognition result: SFSpeechRecognitionResult) {
+        wrapper.handleResult(result.bestTranscription.formattedString)
+    }
+
+    nonisolated func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFailWith error: Error) {
+        wrapper.handleError(error)
+    }
+
+    nonisolated func speechRecognitionTaskWasCancelled(_ task: SFSpeechRecognitionTask) {
+        wrapper.handleCancel()
     }
 }

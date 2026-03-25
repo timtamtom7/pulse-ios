@@ -63,7 +63,7 @@ final class CaptureViewModel: @unchecked Sendable {
         let permission = await PermissionService.shared.requestMicrophonePermission()
         guard permission == .authorized else {
             await MainActor.run {
-                errorMessage = "Microphone access is required to record voice notes. Please enable it in Settings."
+                errorMessage = "Microphone access denied. Please enable it in Settings → Privacy & Security → Microphone → Pulse."
             }
             return
         }
@@ -71,7 +71,7 @@ final class CaptureViewModel: @unchecked Sendable {
         let speechPermission = await PermissionService.shared.requestSpeechPermission()
         guard speechPermission == .authorized else {
             await MainActor.run {
-                errorMessage = "Speech recognition is required to transcribe voice notes. Please enable it in Settings."
+                errorMessage = "Speech recognition denied. Please enable it in Settings → Privacy & Security → Speech Recognition → Pulse."
             }
             return
         }

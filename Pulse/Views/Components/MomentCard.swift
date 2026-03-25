@@ -91,6 +91,7 @@ struct MomentCard: View {
             if let data = Data(base64Encoded: moment.content),
                let image = UIImage(data: data) {
                 // R2: Photo with scene context overlay
+                // R2: Photo with scene context overlay
                 ZStack(alignment: .bottomLeading) {
                     Image(uiImage: image)
                         .resizable()

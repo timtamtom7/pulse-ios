@@ -130,10 +130,29 @@ struct VoiceCaptureView: View {
             }
 
             if let error = viewModel.errorMessage {
-                Text(error)
-                    .font(Theme.Typography.captionFont)
-                    .foregroundColor(Theme.Colors.deepEmber)
-                    .padding()
+                VStack(spacing: Theme.Spacing.sm) {
+                    Text(error)
+                        .font(Theme.Typography.captionFont)
+                        .foregroundColor(Theme.Colors.deepEmber)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+
+                    if error.contains("Settings") {
+                        Button {
+                            PermissionService.shared.openSettings()
+                        } label: {
+                            Text("Open Settings")
+                                .font(Theme.Typography.captionFont)
+                                .fontWeight(.medium)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, Theme.Spacing.md)
+                                .padding(.vertical, Theme.Spacing.sm)
+                                .background(Theme.Colors.mutedRose)
+                                .cornerRadius(Theme.CornerRadius.button)
+                        }
+                    }
+                }
+                .padding()
             }
         }
         .padding(.vertical, Theme.Spacing.xl)
