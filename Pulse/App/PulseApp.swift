@@ -41,4 +41,5 @@ extension Notification.Name {
     static let openTimelineTab = Notification.Name("openTimelineTab")
     static let openCaptureTab = Notification.Name("openCaptureTab")
     static let openPrivacyTab = Notification.Name("openPrivacyTab")
+    static let openFamilyTab = Notification.Name("openFamilyTab")
 }

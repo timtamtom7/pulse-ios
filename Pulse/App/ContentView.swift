@@ -22,6 +22,12 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: .openCaptureTab)) { _ in
             selectedTab = 3
         }
+        .onReceive(NotificationCenter.default.publisher(for: .openFamilyTab)) { _ in
+            selectedTab = 4
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openPrivacyTab)) { _ in
+            selectedTab = 5
+        }
     }
 
     private var iPhoneContentView: some View {
@@ -51,11 +57,18 @@ struct ContentView: View {
                 }
                 .tag(3)
 
+            // R9: Family Circle tab
+            FamilyCircleView()
+                .tabItem {
+                    Label("Family", systemImage: "figure.2.and.child.holdinghands")
+                }
+                .tag(4)
+
             PrivacyView()
                 .tabItem {
                     Label("Privacy", systemImage: "lock.shield")
                 }
-                .tag(4)
+                .tag(5)
         }
         .tint(Theme.Colors.mutedRose)
     }
@@ -85,7 +98,15 @@ struct ContentView: View {
                 }
 
                 NavigationLink(destination: TrustedCircleView()) {
-                    Label("Trusted Circle", systemImage: "figure.2.and.child.holdinghands")
+                    Label("Trusted Circle", systemImage: "person.2.and.person.ellipsis")
+                }
+
+                NavigationLink(destination: FamilyCircleView()) {
+                    Label("Family Circle", systemImage: "figure.2.and.child.holdinghands")
+                }
+
+                NavigationLink(destination: MemorialModeView()) {
+                    Label("Memorial", systemImage: "heart.fill")
                 }
             }
             .navigationTitle("Pulse")

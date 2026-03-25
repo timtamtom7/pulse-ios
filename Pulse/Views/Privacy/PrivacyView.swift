@@ -119,26 +119,44 @@ struct PrivacyView: View {
                             .foregroundColor(Theme.Colors.charcoal)
                             .padding(.horizontal, Theme.Spacing.screenMargin)
 
-                        Button {
-                            viewModel.exportData()
+                        NavigationLink {
+                            LegacyExportView()
                         } label: {
                             HStack {
-                                Image(systemName: "square.and.arrow.up")
-                                    .foregroundColor(Theme.Colors.mutedRose)
-                                Text("Export My Data")
+                                Image(systemName: "book.closed.fill")
+                                    .foregroundColor(Theme.Colors.gentleGold)
+                                Text("Legacy Export")
                                     .font(Theme.Typography.bodyFont)
                                     .foregroundColor(Theme.Colors.charcoal)
                                 Spacer()
-                                if viewModel.isExporting {
-                                    ProgressView()
-                                        .tint(Theme.Colors.warmGray)
-                                }
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Theme.Colors.warmGray)
                             }
                             .padding(Theme.Spacing.md)
                             .background(Theme.Colors.cardBackground)
                             .cornerRadius(Theme.CornerRadius.medium)
                         }
-                        .disabled(viewModel.isExporting)
+                        .padding(.horizontal, Theme.Spacing.screenMargin)
+
+                        NavigationLink {
+                            MemorialModeView()
+                        } label: {
+                            HStack {
+                                Image(systemName: "heart.fill")
+                                    .foregroundColor(Theme.Colors.mutedRose)
+                                Text("Memorial Mode")
+                                    .font(Theme.Typography.bodyFont)
+                                    .foregroundColor(Theme.Colors.charcoal)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(Theme.Colors.warmGray)
+                            }
+                            .padding(Theme.Spacing.md)
+                            .background(Theme.Colors.cardBackground)
+                            .cornerRadius(Theme.CornerRadius.medium)
+                        }
                         .padding(.horizontal, Theme.Spacing.screenMargin)
 
                         Button {
