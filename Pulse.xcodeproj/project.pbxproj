@@ -8,56 +8,114 @@
 
 /* Begin PBXBuildFile section */
 		0043D4BBF28A474746FC59B8 /* SocialComparisonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */; };
+		007E4B140B39FDD13CD195B2 /* PulseMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D10739317FA6FB82733079 /* PulseMacApp.swift */; };
 		06CC71FF330CD853C92B43E5 /* SocialComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596540E43597E292C500ACF2 /* SocialComparisonView.swift */; };
+		084371498F179B07F879DD15 /* Insight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4011D2D440F9764EFC84E1 /* Insight.swift */; };
 		0CFA3CA1F221ECDDE0C3E69C /* TrustedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */; };
 		0E371D53C11EE48CA0870769 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
 		157A7AEF4A28C9AB83CD3F18 /* CorrelationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3781E1F292504B35F2F88 /* CorrelationService.swift */; };
+		15B98B71EACD3E19C1E315E1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D73F310B6D8564B1B597665 /* Info.plist */; };
 		1788A3FD64252998F9112A94 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */; };
+		17E88438613C347E8CA01C7E /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36015946ECDE882DEBEFDD16 /* PrivacyViewModel.swift */; };
 		18499B99AF84184963376190 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */; };
+		1E7F5FA6D73C221D3473A4B5 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */; };
+		2022E2F2F29CA40EAE15181D /* JournalCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */; };
+		21E371E3046F346D186BAAA9 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EB1C61393EDF4F95D69B8 /* PulseView.swift */; };
+		21F13801AC3B48B7347B00C5 /* PulseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81328CA01D371325C80C4D9A /* PulseButton.swift */; };
 		234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FD4D83DC12598E4BC4849 /* Theme.swift */; };
+		2657123E685AA51E56DA94D0 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
+		2766DC33A687B8203CFEA665 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEC711FA7536F00870BC15 /* ContentView.swift */; };
 		27CD7FFEFD0C655F6CCFACEC /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E322C2019CB345408743B8 /* AnalysisService.swift */; };
 		28B5EEB727E16919F33635A4 /* Insight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4011D2D440F9764EFC84E1 /* Insight.swift */; };
 		29229477F6786044E5FCEF49 /* MoodCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AB45CA9B1B4983C19ED39E /* MoodCheckInView.swift */; };
 		2AAFE14FB319A53254F1093C /* InsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B870C215C3FE255F8F339 /* InsightService.swift */; };
+		2E7F139135A456B0258D0541 /* PulseEmptyIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A432377A8506C7019E6CD /* PulseEmptyIllustration.swift */; };
+		32254365C778BCD1296866E0 /* EmotionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A30438F425DA40663CA1E /* EmotionTag.swift */; };
 		3486367464537B6192F7C2AF /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE9CD05DD0A6FAA15E6014 /* PulseApp.swift */; };
+		3781CD387C8B2C8B60E67589 /* EventKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4635DD68A298D928050264B /* EventKitService.swift */; };
+		39623490157463DFE096D821 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512567B21DE8110034BAA32 /* Emotion.swift */; };
 		3A8F65C6B42C3D6AE0118D32 /* PulseWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */; };
 		3F9277DEBE1752A398274932 /* VoiceToneAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */; };
+		427FB5C7C26BB1FE60D76213 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA77E770FCC0922C835437 /* DataSource.swift */; };
+		42B5C755F3BA2743FAD11835 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C053AF2606998CA1B8A2133 /* WeatherService.swift */; };
 		45F7A21CB8F6325B4A1B9D3E /* CaptureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EE17672365C4EC0C0CFF3 /* CaptureViewModel.swift */; };
 		47ED89D68BE5669563112E68 /* TrustedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB65267B447843BCF499F0A /* TrustedCircle.swift */; };
+		50403FB23A220E1A2BB2395F /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E322C2019CB345408743B8 /* AnalysisService.swift */; };
+		50A2DF20FD1C621A59E0638B /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E648A9C43D1F9A20A2A0D80 /* Moment.swift */; };
+		54FA230F47A4FC765D0C4667 /* CorrelationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3781E1F292504B35F2F88 /* CorrelationService.swift */; };
+		561DE66A2F39D618F0843A75 /* SocialComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A546BBA1451C31CAB1ED /* SocialComparison.swift */; };
 		57072E4C423B06935F3FD407 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1258A0A545336B52705149A /* MoodEntry.swift */; };
+		57B511EF3B6A0B46C632E6D4 /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95445B2B13B1969650264AD8 /* DayDetailView.swift */; };
+		57B54924E632F7345F704EC7 /* VoiceCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3A73C53D9E36D92E0FE98 /* VoiceCaptureView.swift */; };
 		5BDD1F393966644B3C719537 /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95445B2B13B1969650264AD8 /* DayDetailView.swift */; };
 		5CBB11DBC2E79B1875369AF0 /* PulseWatchWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAB57CBE4767902029CF42 /* PulseWatchWatchApp.swift */; };
+		5E3CC68B3B11C803F2E3E2A2 /* VoiceToneAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */; };
+		60B710D2153605BF4A50CEDD /* CaptureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0EE17672365C4EC0C0CFF3 /* CaptureViewModel.swift */; };
 		616B1E15A99B07B4D65A228F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */; };
 		672556E24CD78D60071CB606 /* InsightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */; };
+		6DD79CED7A7ACA655FD53A63 /* TrustedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB65267B447843BCF499F0A /* TrustedCircle.swift */; };
 		720275D747367AFB6F6D287F /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C053AF2606998CA1B8A2133 /* WeatherService.swift */; };
+		7584B4C9C7D78E24984C5526 /* WatchSharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D4BED31CCDE6563507384 /* WatchSharedModels.swift */; };
 		76CDD6E851D100BF9EACBF1A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA77E770FCC0922C835437 /* DataSource.swift */; };
 		76FD5A62F9BB857177C561E9 /* PulseWatchWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		77DA0DCE0142BCFA02556A43 /* WatchComplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35846001AEA3EAA9575911A8 /* WatchComplicationService.swift */; };
+		7C2AF94223F1059CBFFB3A07 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE9CD05DD0A6FAA15E6014 /* PulseApp.swift */; };
+		7C68162BBE4C1FFF4CAD87B5 /* MomentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5EAB4F417AD29E2156974E /* MomentCard.swift */; };
 		82B786E07519577CF621D1C2 /* SocialComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A546BBA1451C31CAB1ED /* SocialComparison.swift */; };
+		82CD5C520B4F526004009A56 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */; };
+		834B7631EFFCB8914FA49C66 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E46ABFF71739995361C240 /* DatabaseService.swift */; };
+		83F8114F5AE1F624C1B74A8F /* InsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B870C215C3FE255F8F339 /* InsightService.swift */; };
 		8669EF8FAAFFF893EE0C07D5 /* DataBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */; };
 		8E925841A156BA2833E4C69B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA36EF3785615B971323AE /* ContentView.swift */; };
+		8FE8596C346D6086A40FFAD9 /* EmotionalForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */; };
+		907C4598115384BE9DF2BE75 /* TrustedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */; };
 		9532494D3B9F0FE5C4EBC6D8 /* VisionPhotoAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */; };
+		97C52A88B5970C8DB5B37E11 /* EmotionalForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */; };
 		9A6B12B0FC6D383196BDAA37 /* JournalCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */; };
+		9AEBE2E9C049E13ABA384247 /* SocialComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596540E43597E292C500ACF2 /* SocialComparisonView.swift */; };
 		9FD4101D54375249279EF0C6 /* VoiceCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3A73C53D9E36D92E0FE98 /* VoiceCaptureView.swift */; };
+		A37A6E444579DEEF7A4177B9 /* LoadingShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */; };
 		A6A67B77283BB5D065DA2CDD /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F603A9B0A82C263E582C0A8 /* PermissionService.swift */; };
+		A80C43058DCC8D006DEAA360 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25FFA745215769D4CD8F40 /* ForecastView.swift */; };
+		A840BCBA42926CBAE710BA29 /* DataSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */; };
+		AAFE5F5473F01EE5523E784E /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FBDA090835F1474B67185 /* PrivacyView.swift */; };
+		AEB0AB835C495D610DE83625 /* WatchComplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35846001AEA3EAA9575911A8 /* WatchComplicationService.swift */; };
+		AFB66A79FC32AA38220C23AC /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F603A9B0A82C263E582C0A8 /* PermissionService.swift */; };
 		B00128574A64C562778FC551 /* MomentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5EAB4F417AD29E2156974E /* MomentCard.swift */; };
 		B0E83CEA79402D1A294D59B9 /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256E7D0435EA5F83232DEB7 /* PulseViewModel.swift */; };
 		B6E2731AC4C4429BA1F3DB97 /* EmotionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A30438F425DA40663CA1E /* EmotionTag.swift */; };
 		B7AA19FB89D609BE34ACE904 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E648A9C43D1F9A20A2A0D80 /* Moment.swift */; };
+		B877228E03D5523E50E25BD8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FD4D83DC12598E4BC4849 /* Theme.swift */; };
 		BA5ACA379765CC007A443352 /* PulseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81328CA01D371325C80C4D9A /* PulseButton.swift */; };
 		C1A18B955B77F2AD68103B23 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FBDA090835F1474B67185 /* PrivacyView.swift */; };
 		C1B8E423639D66F5B374B533 /* DataSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */; };
+		C5D15DAA355EF9E57C7AA298 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D5B744BB978121FC9A901D /* TimelineView.swift */; };
 		C63B5C54385343A886B638BB /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E46ABFF71739995361C240 /* DatabaseService.swift */; };
 		CB963887295ADC3C03277AEA /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36015946ECDE882DEBEFDD16 /* PrivacyViewModel.swift */; };
+		CBBD0A2CE69D649CF63EB551 /* InsightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */; };
+		CCBBCCE9EF0DCC3E959B2049 /* HandoffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A542665DE2789250793968 /* HandoffManager.swift */; };
+		CE524DF315968CC678949C13 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */; };
+		D161C2713A41D634B3497F76 /* SocialComparisonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */; };
 		D2A3859A7E3E9AB6F219D2F7 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512567B21DE8110034BAA32 /* Emotion.swift */; };
 		D3D896F0E0BAED28F257AB83 /* LoadingShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */; };
+		D44CC2AF4FDE17709E43D4DA /* VisionPhotoAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */; };
+		D6774D1C60DFE2DA6571BBE6 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25FFA745215769D4CD8F40 /* ForecastView.swift */; };
+		D68223E6E45DE63FB6F26076 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */; };
 		D7123D5AE753AAF85129B00D /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */; };
 		D7D58D3484234B061454A3E5 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADA188CF0828C3B20B6936 /* MoodEntry.swift */; };
 		D9D05972EF49B600D88EBB62 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EB1C61393EDF4F95D69B8 /* PulseView.swift */; };
 		DC07E6DA1C9C068A6A5BD0BF /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */; };
 		DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384598CDEFC74771C10C8245 /* CaptureView.swift */; };
+		E4CEF05165AA540FD4797616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */; };
+		E78221654DE7501B3F1B3387 /* WatchSharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D4BED31CCDE6563507384 /* WatchSharedModels.swift */; };
+		EB6AD4C14341A11B0A9AD363 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384598CDEFC74771C10C8245 /* CaptureView.swift */; };
+		EB8198002DCE4D1E2B10D61A /* HandoffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A542665DE2789250793968 /* HandoffManager.swift */; };
 		EC1885A3538327B6CABB18A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEC711FA7536F00870BC15 /* ContentView.swift */; };
+		ED4539F0105B0DE0790455CB /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256E7D0435EA5F83232DEB7 /* PulseViewModel.swift */; };
 		ED73C53CBA56A1315EBD288E /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D5B744BB978121FC9A901D /* TimelineView.swift */; };
 		F0A2B466FFAF593EFBCDA94B /* PulseEmptyIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A432377A8506C7019E6CD /* PulseEmptyIllustration.swift */; };
+		F892A18EB7C5FBBD12197B03 /* DataBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */; };
+		F9426344AA279DFB18395772 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 29D5B6C0FFC80ED7A6328714 /* SQLite */; };
 		FC72498FF4B1C21EAD896CDE /* EventKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4635DD68A298D928050264B /* EventKitService.swift */; };
 		FF152BDE6343A10B8627BC3C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = BC374109C44EED84E8317D4E /* SQLite */; };
 /* End PBXBuildFile section */
@@ -102,6 +160,9 @@
 		2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCaptureView.swift; sourceTree = "<group>"; };
 		2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightCardView.swift; sourceTree = "<group>"; };
 		2F603A9B0A82C263E582C0A8 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
+		30C71A89B54A9A8DAEB9D041 /* PulseMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseMac.entitlements; sourceTree = "<group>"; };
+		3231541475AF8FC5B8274094 /* PulseMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35846001AEA3EAA9575911A8 /* WatchComplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchComplicationService.swift; sourceTree = "<group>"; };
 		36015946ECDE882DEBEFDD16 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
 		371FBDA090835F1474B67185 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		384598CDEFC74771C10C8245 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
@@ -125,14 +186,18 @@
 		7D4011D2D440F9764EFC84E1 /* Insight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insight.swift; sourceTree = "<group>"; };
 		7F3C395B30D555628914AD59 /* PulseWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseWatch.entitlements; sourceTree = "<group>"; };
 		81328CA01D371325C80C4D9A /* PulseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseButton.swift; sourceTree = "<group>"; };
+		81A542665DE2789250793968 /* HandoffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandoffManager.swift; sourceTree = "<group>"; };
 		82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8930A546BBA1451C31CAB1ED /* SocialComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialComparison.swift; sourceTree = "<group>"; };
 		95445B2B13B1969650264AD8 /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
 		9902E9137FBC5097AFC1D4E8 /* DataSourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcesView.swift; sourceTree = "<group>"; };
+		9BAAFAE88463D54074C4FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionalForecastService.swift; sourceTree = "<group>"; };
 		A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseWatchWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1258A0A545336B52705149A /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		B4635DD68A298D928050264B /* EventKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitService.swift; sourceTree = "<group>"; };
 		B81B870C215C3FE255F8F339 /* InsightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightService.swift; sourceTree = "<group>"; };
+		BB9D4BED31CCDE6563507384 /* WatchSharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSharedModels.swift; sourceTree = "<group>"; };
 		BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPhotoAnalysisService.swift; sourceTree = "<group>"; };
 		BD9BF2FF9BE0D1226FC0438D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
@@ -141,14 +206,24 @@
 		CBC8AE5BF7C0419018C1192A /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
 		D7DA36EF3785615B971323AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircleView.swift; sourceTree = "<group>"; };
+		E4D10739317FA6FB82733079 /* PulseMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMacApp.swift; sourceTree = "<group>"; };
 		EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		F1E46ABFF71739995361C240 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWatchApp.swift; sourceTree = "<group>"; };
+		FA25FFA745215769D4CD8F40 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		FAAA77E770FCC0922C835437 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FDC1EE0D97336A2047E987CF /* LoadingShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShimmer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C5CD18D44F910733608FEDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9426344AA279DFB18395772 /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C9078D005D61D91A0E0C7F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,10 +267,18 @@
 			isa = PBXGroup;
 			children = (
 				13FEF2D2118D74C3572DF349 /* Pulse.app */,
+				3231541475AF8FC5B8274094 /* PulseMac.app */,
 				658BC99EE552C7E68CBA5EB8 /* PulseWatch.app */,
 				A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		20852FFAD85E31E13570B979 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		274EF6ED2A743B6167E891C2 /* TrustedCircle */ = {
@@ -256,6 +339,17 @@
 			path = PulseWatchWatch;
 			sourceTree = "<group>";
 		};
+		50B9B2776900B1FB87513808 /* PulseMac */ = {
+			isa = PBXGroup;
+			children = (
+				9BAAFAE88463D54074C4FA70 /* Info.plist */,
+				30C71A89B54A9A8DAEB9D041 /* PulseMac.entitlements */,
+				20852FFAD85E31E13570B979 /* Resources */,
+				6CD53EDB3126075877108AE4 /* Sources */,
+			);
+			path = PulseMac;
+			sourceTree = "<group>";
+		};
 		586910FA471E0EB8D08C5BD8 /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +387,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6CD53EDB3126075877108AE4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E4D10739317FA6FB82733079 /* PulseMacApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		6EB33EDEBFF6F2EBBD69ADA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +404,7 @@
 				0E648A9C43D1F9A20A2A0D80 /* Moment.swift */,
 				8930A546BBA1451C31CAB1ED /* SocialComparison.swift */,
 				4DB65267B447843BCF499F0A /* TrustedCircle.swift */,
+				BB9D4BED31CCDE6563507384 /* WatchSharedModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				16C8605271C6A45188D07E13 /* Pulse */,
+				50B9B2776900B1FB87513808 /* PulseMac */,
 				8575991D469966D1B48555F6 /* PulseWatch */,
 				465A92EF7ACBC085E532196D /* PulseWatchWatch */,
 				1FEE830988994786371D8E45 /* Products */,
@@ -350,6 +454,7 @@
 			children = (
 				01C3C13F34F93DE303F1DFFD /* Capture */,
 				32EC50CFDC1D413FC5C20939 /* Components */,
+				C1AECCEE1DA0535115601399 /* Forecast */,
 				586910FA471E0EB8D08C5BD8 /* Privacy */,
 				AE42733BEFC73010704B43E1 /* Pulse */,
 				763911068183CE0A37BBD95B /* SocialComparison */,
@@ -366,6 +471,14 @@
 				046EB1C61393EDF4F95D69B8 /* PulseView.swift */,
 			);
 			path = Pulse;
+			sourceTree = "<group>";
+		};
+		C1AECCEE1DA0535115601399 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				FA25FFA745215769D4CD8F40 /* ForecastView.swift */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 		CFF82D3B6F60F4A8C7B64B46 /* Views */ = {
@@ -389,13 +502,16 @@
 				21E322C2019CB345408743B8 /* AnalysisService.swift */,
 				44C3781E1F292504B35F2F88 /* CorrelationService.swift */,
 				F1E46ABFF71739995361C240 /* DatabaseService.swift */,
+				A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */,
 				B4635DD68A298D928050264B /* EventKitService.swift */,
+				81A542665DE2789250793968 /* HandoffManager.swift */,
 				0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */,
 				B81B870C215C3FE255F8F339 /* InsightService.swift */,
 				2F603A9B0A82C263E582C0A8 /* PermissionService.swift */,
 				2C30B8A51F85793A834BAE9A /* SocialComparisonService.swift */,
 				BCB8E821BB81833F2BE737C8 /* VisionPhotoAnalysisService.swift */,
 				63217694605EDA5CF823C9FB /* VoiceToneAnalysisService.swift */,
+				35846001AEA3EAA9575911A8 /* WatchComplicationService.swift */,
 				5C053AF2606998CA1B8A2133 /* WeatherService.swift */,
 			);
 			path = Services;
@@ -472,6 +588,26 @@
 			productReference = 13FEF2D2118D74C3572DF349 /* Pulse.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DDB7F8CF321EFA949E1BC6D6 /* PulseMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D6B7E4BA0B2B85DB4C3339E /* Build configuration list for PBXNativeTarget "PulseMac" */;
+			buildPhases = (
+				102EC0AA7F2B0F6E4211BBAB /* Sources */,
+				0D5201C67157F6622C53EF51 /* Resources */,
+				1C5CD18D44F910733608FEDA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PulseMac;
+			packageProductDependencies = (
+				29D5B6C0FFC80ED7A6328714 /* SQLite */,
+			);
+			productName = PulseMac;
+			productReference = 3231541475AF8FC5B8274094 /* PulseMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -493,6 +629,10 @@
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
+					DDB7F8CF321EFA949E1BC6D6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = AEADBFB0BC46A63478A94A51 /* Build configuration list for PBXProject "Pulse" */;
@@ -511,6 +651,7 @@
 			projectRoot = "";
 			targets = (
 				CF79B1BAD3D70F54153FE0B3 /* Pulse */,
+				DDB7F8CF321EFA949E1BC6D6 /* PulseMac */,
 				1FD59D79150B4CD00EEDF298 /* PulseWatch */,
 				84FBB165FDFE446DB30781C8 /* PulseWatchWatch */,
 			);
@@ -518,6 +659,16 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D5201C67157F6622C53EF51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4CEF05165AA540FD4797616 /* Assets.xcassets in Resources */,
+				15B98B71EACD3E19C1E315E1 /* Info.plist in Resources */,
+				CE524DF315968CC678949C13 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		606EBA1EB03BF3A2D7674713 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,6 +681,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		102EC0AA7F2B0F6E4211BBAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50403FB23A220E1A2BB2395F /* AnalysisService.swift in Sources */,
+				EB6AD4C14341A11B0A9AD363 /* CaptureView.swift in Sources */,
+				60B710D2153605BF4A50CEDD /* CaptureViewModel.swift in Sources */,
+				2766DC33A687B8203CFEA665 /* ContentView.swift in Sources */,
+				54FA230F47A4FC765D0C4667 /* CorrelationService.swift in Sources */,
+				F892A18EB7C5FBBD12197B03 /* DataBrowserView.swift in Sources */,
+				427FB5C7C26BB1FE60D76213 /* DataSource.swift in Sources */,
+				A840BCBA42926CBAE710BA29 /* DataSourcesView.swift in Sources */,
+				834B7631EFFCB8914FA49C66 /* DatabaseService.swift in Sources */,
+				57B511EF3B6A0B46C632E6D4 /* DayDetailView.swift in Sources */,
+				39623490157463DFE096D821 /* Emotion.swift in Sources */,
+				32254365C778BCD1296866E0 /* EmotionTag.swift in Sources */,
+				8FE8596C346D6086A40FFAD9 /* EmotionalForecastService.swift in Sources */,
+				3781CD387C8B2C8B60E67589 /* EventKitService.swift in Sources */,
+				D6774D1C60DFE2DA6571BBE6 /* ForecastView.swift in Sources */,
+				EB8198002DCE4D1E2B10D61A /* HandoffManager.swift in Sources */,
+				1E7F5FA6D73C221D3473A4B5 /* HealthKitService.swift in Sources */,
+				084371498F179B07F879DD15 /* Insight.swift in Sources */,
+				CBBD0A2CE69D649CF63EB551 /* InsightCardView.swift in Sources */,
+				83F8114F5AE1F624C1B74A8F /* InsightService.swift in Sources */,
+				2022E2F2F29CA40EAE15181D /* JournalCaptureView.swift in Sources */,
+				A37A6E444579DEEF7A4177B9 /* LoadingShimmer.swift in Sources */,
+				50A2DF20FD1C621A59E0638B /* Moment.swift in Sources */,
+				7C68162BBE4C1FFF4CAD87B5 /* MomentCard.swift in Sources */,
+				AFB66A79FC32AA38220C23AC /* PermissionService.swift in Sources */,
+				D68223E6E45DE63FB6F26076 /* PhotoCaptureView.swift in Sources */,
+				AAFE5F5473F01EE5523E784E /* PrivacyView.swift in Sources */,
+				17E88438613C347E8CA01C7E /* PrivacyViewModel.swift in Sources */,
+				7C2AF94223F1059CBFFB3A07 /* PulseApp.swift in Sources */,
+				21F13801AC3B48B7347B00C5 /* PulseButton.swift in Sources */,
+				2E7F139135A456B0258D0541 /* PulseEmptyIllustration.swift in Sources */,
+				007E4B140B39FDD13CD195B2 /* PulseMacApp.swift in Sources */,
+				21E371E3046F346D186BAAA9 /* PulseView.swift in Sources */,
+				ED4539F0105B0DE0790455CB /* PulseViewModel.swift in Sources */,
+				561DE66A2F39D618F0843A75 /* SocialComparison.swift in Sources */,
+				D161C2713A41D634B3497F76 /* SocialComparisonService.swift in Sources */,
+				9AEBE2E9C049E13ABA384247 /* SocialComparisonView.swift in Sources */,
+				B877228E03D5523E50E25BD8 /* Theme.swift in Sources */,
+				2657123E685AA51E56DA94D0 /* TimelineDayRow.swift in Sources */,
+				C5D15DAA355EF9E57C7AA298 /* TimelineView.swift in Sources */,
+				82CD5C520B4F526004009A56 /* TimelineViewModel.swift in Sources */,
+				6DD79CED7A7ACA655FD53A63 /* TrustedCircle.swift in Sources */,
+				907C4598115384BE9DF2BE75 /* TrustedCircleView.swift in Sources */,
+				D44CC2AF4FDE17709E43D4DA /* VisionPhotoAnalysisService.swift in Sources */,
+				57B54924E632F7345F704EC7 /* VoiceCaptureView.swift in Sources */,
+				5E3CC68B3B11C803F2E3E2A2 /* VoiceToneAnalysisService.swift in Sources */,
+				AEB0AB835C495D610DE83625 /* WatchComplicationService.swift in Sources */,
+				7584B4C9C7D78E24984C5526 /* WatchSharedModels.swift in Sources */,
+				42B5C755F3BA2743FAD11835 /* WeatherService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88D6AF757036F12496010781 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,7 +773,10 @@
 				5BDD1F393966644B3C719537 /* DayDetailView.swift in Sources */,
 				D2A3859A7E3E9AB6F219D2F7 /* Emotion.swift in Sources */,
 				B6E2731AC4C4429BA1F3DB97 /* EmotionTag.swift in Sources */,
+				97C52A88B5970C8DB5B37E11 /* EmotionalForecastService.swift in Sources */,
 				FC72498FF4B1C21EAD896CDE /* EventKitService.swift in Sources */,
+				A80C43058DCC8D006DEAA360 /* ForecastView.swift in Sources */,
+				CCBBCCE9EF0DCC3E959B2049 /* HandoffManager.swift in Sources */,
 				DC07E6DA1C9C068A6A5BD0BF /* HealthKitService.swift in Sources */,
 				28B5EEB727E16919F33635A4 /* Insight.swift in Sources */,
 				672556E24CD78D60071CB606 /* InsightCardView.swift in Sources */,
@@ -596,6 +806,8 @@
 				9532494D3B9F0FE5C4EBC6D8 /* VisionPhotoAnalysisService.swift in Sources */,
 				9FD4101D54375249279EF0C6 /* VoiceCaptureView.swift in Sources */,
 				3F9277DEBE1752A398274932 /* VoiceToneAnalysisService.swift in Sources */,
+				77DA0DCE0142BCFA02556A43 /* WatchComplicationService.swift in Sources */,
+				E78221654DE7501B3F1B3387 /* WatchSharedModels.swift in Sources */,
 				720275D747367AFB6F6D287F /* WeatherService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,7 +900,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -710,6 +922,33 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		48099D02B45DEF8D12AAFAB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PulseMac/PulseMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.mac;
+				PRODUCT_NAME = Pulse;
+				SDKROOT = macosx;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -757,6 +996,33 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		805E0BC944EDDA71E5B99D59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PulseMac/PulseMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.app.mac;
+				PRODUCT_NAME = Pulse;
+				SDKROOT = macosx;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -870,13 +1136,22 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6D6B7E4BA0B2B85DB4C3339E /* Build configuration list for PBXNativeTarget "PulseMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48099D02B45DEF8D12AAFAB8 /* Debug */,
+				805E0BC944EDDA71E5B99D59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		9608D96881FD5C17BB380FA0 /* Build configuration list for PBXNativeTarget "Pulse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -927,6 +1202,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		29D5B6C0FFC80ED7A6328714 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F88CB82D2622AEC8D76DEA7C /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		BC374109C44EED84E8317D4E /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F88CB82D2622AEC8D76DEA7C /* XCRemoteSwiftPackageReference "SQLite.swift" */;

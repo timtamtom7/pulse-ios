@@ -13,6 +13,15 @@ struct ContentView: View {
                 iPhoneContentView
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .openPulseTab)) { _ in
+            selectedTab = 0
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openTimelineTab)) { _ in
+            selectedTab = 1
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openCaptureTab)) { _ in
+            selectedTab = 3
+        }
     }
 
     private var iPhoneContentView: some View {
