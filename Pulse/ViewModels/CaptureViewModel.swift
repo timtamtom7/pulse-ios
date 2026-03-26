@@ -81,7 +81,7 @@ final class CaptureViewModel: @unchecked Sendable {
             try audioSession.setCategory(.playAndRecord, mode: .default)
             try audioSession.setActive(true)
 
-            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? URL(fileURLWithPath: NSTemporaryDirectory())
             let audioFilename = documentsPath.appendingPathComponent("voice_\(UUID().uuidString).m4a")
 
             let settings: [String: Any] = [

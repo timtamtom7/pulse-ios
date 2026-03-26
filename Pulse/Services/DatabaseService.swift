@@ -42,7 +42,7 @@ final class DatabaseService: @unchecked Sendable {
 
     private func setupDatabase() {
         do {
-            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? URL(fileURLWithPath: NSTemporaryDirectory())
             let dbPath = documentsPath.appendingPathComponent("pulse.sqlite3")
             db = try Connection(dbPath.path)
 

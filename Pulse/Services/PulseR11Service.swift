@@ -77,7 +77,7 @@ final class PulseR11Service: ObservableObject {
     // MARK: - Advanced
 
     func exportHistoricalData(format: ExportFormat) throws -> URL {
-        let data = "timestamp,cpu,memory\n".data(using: .utf8)!
+        let data = "timestamp,cpu,memory\n".data(using: .utf8) ?? Data()
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("pulse_export.\(format.rawValue)")
         try data.write(to: url)
         return url
