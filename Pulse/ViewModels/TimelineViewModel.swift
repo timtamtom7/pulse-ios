@@ -72,7 +72,8 @@ final class TimelineViewModel: @unchecked Sendable {
         for summary in daySummaries {
             if currentGroup.isEmpty {
                 currentGroup.append(summary)
-            } else if calendar.component(.weekOfYear, from: currentGroup.last!.date) ==
+            } else if let lastSummary = currentGroup.last,
+                      calendar.component(.weekOfYear, from: lastSummary.date) ==
                         calendar.component(.weekOfYear, from: summary.date) {
                 currentGroup.append(summary)
             } else {
