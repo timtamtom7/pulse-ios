@@ -199,17 +199,17 @@ struct ForecastDayCell: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                 .fill(forecast.stressRisk.color.opacity(0.6))
 
             if isToday {
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                     .strokeBorder(Theme.Colors.charcoal, lineWidth: 2)
             }
 
             VStack(spacing: 0) {
                 Text("\(Calendar.current.component(.day, from: forecast.date))")
-                    .font(.system(size: 10, weight: isToday ? .bold : .regular))
+                    .font(.system(size: 11, weight: isToday ? .bold : .regular))
                     .foregroundColor(isToday ? Theme.Colors.charcoal : .white)
             }
         }

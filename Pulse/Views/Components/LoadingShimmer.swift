@@ -11,22 +11,22 @@ struct LoadingShimmer: View {
                     .fill(Theme.Colors.softBlush)
                     .frame(width: 24, height: 24)
 
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                     .fill(Theme.Colors.softBlush)
                     .frame(width: 100, height: 12)
             }
 
             // Title
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                 .fill(Theme.Colors.softBlush)
                 .frame(height: 24)
 
             // Body lines
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                 .fill(Theme.Colors.softBlush)
                 .frame(height: 16)
 
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                 .fill(Theme.Colors.softBlush)
                 .frame(width: 200, height: 16)
 
@@ -36,7 +36,7 @@ struct LoadingShimmer: View {
                     .fill(Theme.Colors.softBlush)
                     .frame(width: 16, height: 16)
 
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                     .fill(Theme.Colors.softBlush)
                     .frame(width: 120, height: 12)
             }

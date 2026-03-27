@@ -133,7 +133,7 @@ struct EmotionBubbleView: View {
                 .foregroundColor(isSelected ? Theme.Colors.charcoal : Theme.Colors.warmGray)
 
             Text("\(summary.momentCount)")
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundColor(Theme.Colors.warmGray)
         }
         .scaleEffect(isSelected ? 1.1 : 1.0)

@@ -352,11 +352,11 @@ struct PrivacyScoreCard: View {
             // Score bar
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4)
+                    RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                         .fill(Theme.Colors.softBlush)
                         .frame(height: 8)
 
-                    RoundedRectangle(cornerRadius: 4)
+                    RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                         .fill(scoreColor)
                         .frame(width: geometry.size.width * CGFloat(score) / 100, height: 8)
                 }
@@ -583,10 +583,10 @@ struct TrustedCirclesCard: View {
             HStack(spacing: Theme.Spacing.xs) {
                 Image(systemName: "eye.slash.fill")
                     .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
 
                 Text("Individual moments are never shared — only aggregates")
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
                     .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
             }
         }
@@ -626,7 +626,7 @@ struct TrustedMemberRow: View {
 
                 HStack(spacing: Theme.Spacing.xs) {
                     Image(systemName: member.relationship.icon)
-                        .font(.system(size: 10))
+                        .font(.system(size: 11))
                     Text(member.relationship.rawValue)
                         .font(.system(size: 11))
                 }
@@ -638,7 +638,7 @@ struct TrustedMemberRow: View {
             // Last shared
             if let lastShare = member.lastSharedAt {
                 Text(lastShare, style: .relative)
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
                     .foregroundColor(Theme.Colors.warmGray)
             }
 

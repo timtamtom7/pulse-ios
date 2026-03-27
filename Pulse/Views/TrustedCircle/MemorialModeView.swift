@@ -368,7 +368,7 @@ struct MemorialCard: View {
                         HStack(alignment: .top, spacing: Theme.Spacing.sm) {
                             Image(systemName: "heart.fill")
                                 .foregroundColor(Theme.Colors.mutedRose)
-                                .font(.system(size: 10))
+                                .font(.system(size: 11))
                                 .padding(.top, 2)
 
                             Text(insight)

@@ -77,13 +77,16 @@ enum Theme {
         static let screenMargin: CGFloat = 20
     }
 
-    // MARK: - CornerRadius
+    // MARK: - CornerRadius (iOS 26 Liquid Glass)
     enum CornerRadius {
-        static let small: CGFloat = 8
-        static let medium: CGFloat = 12
-        static let large: CGFloat = 16
-        static let card: CGFloat = 16
-        static let button: CGFloat = 12
+        static let extraSmall: CGFloat = 4  // Progress bars, small badges
+        static let small: CGFloat = 8       // Compact elements
+        static let medium: CGFloat = 12     // Buttons, tags
+        static let large: CGFloat = 16      // Cards, panels
+        static let extraLarge: CGFloat = 20 // Modal sheets
+        // Aliases for compatibility
+        static let card: CGFloat = large
+        static let button: CGFloat = medium
     }
 
     // MARK: - Animations

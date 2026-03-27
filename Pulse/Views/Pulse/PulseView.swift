@@ -470,10 +470,10 @@ struct SocialComparisonSection: View {
             HStack(spacing: Theme.Spacing.xs) {
                 Image(systemName: "lock.fill")
                     .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
 
                 Text("Anonymized & aggregated — your data stays private")
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
                     .foregroundColor(Theme.Colors.warmGray.opacity(0.6))
             }
             .padding(.top, Theme.Spacing.xs)
@@ -595,13 +595,13 @@ struct PercentileComparisonRow: View {
 
             HStack {
                 Text("vs \(Int(comparison.averageValue * 100))% avg")
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
                     .foregroundColor(Theme.Colors.warmGray)
 
                 Spacer()
 
                 Text("n=\(comparison.sampleSize.formatted()) users")
-                    .font(.system(size: 10))
+                    .font(.system(size: 11))
                     .foregroundColor(Theme.Colors.warmGray.opacity(0.7))
             }
         }

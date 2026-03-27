@@ -372,12 +372,12 @@ struct TierCard: View {
 
                                 if isCurrentTier {
                                     Text("Current")
-                                        .font(.system(size: 10, weight: .bold))
+                                        .font(.system(size: 11, weight: .bold))
                                         .foregroundColor(Theme.Colors.cardBackground)
                                         .padding(.horizontal, 6)
                                         .padding(.vertical, 2)
                                         .background(tierColor)
-                                        .cornerRadius(4)
+                                        .cornerRadius(Theme.CornerRadius.extraSmall)
                                 }
                             }
 
@@ -408,7 +408,7 @@ struct TierCard: View {
                         HStack(spacing: Theme.Spacing.sm) {
                             Image(systemName: "checkmark")
                                 .foregroundColor(tierColor)
-                                .font(.system(size: 10))
+                                .font(.system(size: 11))
 
                             Text(feature)
                                 .font(Theme.Typography.captionFont)

@@ -102,12 +102,12 @@ struct MomentCard: View {
                     // R2: Scene type badge
                     if let dominant = dominantEmotion {
                         Text(dominant.label)
-                            .font(.system(size: 10, weight: .semibold))
+                            .font(.system(size: 11, weight: .semibold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(accentColor.opacity(0.8))
-                            .cornerRadius(4)
+                            .cornerRadius(Theme.CornerRadius.extraSmall)
                             .padding(6)
                     }
                 }
@@ -117,7 +117,7 @@ struct MomentCard: View {
             VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
                 HStack(spacing: 4) {
                     Image(systemName: "quote.opening")
-                        .font(.system(size: 10))
+                        .font(.system(size: 11))
                         .foregroundColor(Theme.Colors.warmGray)
                     Text("Transcript")
                         .font(Theme.Typography.captionFont)
@@ -146,16 +146,16 @@ struct MomentCard: View {
     private var emotionScoreBar: some View {
         HStack(spacing: Theme.Spacing.xs) {
             Text("Mood")
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundColor(Theme.Colors.warmGray)
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 2)
+                    RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                         .fill(Theme.Colors.softBlush)
                         .frame(height: 4)
 
-                    RoundedRectangle(cornerRadius: 2)
+                    RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                         .fill(accentColor)
                         .frame(width: geometry.size.width * CGFloat((moment.emotionScore + 1) / 2), height: 4)
                 }
@@ -163,7 +163,7 @@ struct MomentCard: View {
             .frame(height: 4)
 
             Text(String(format: "%.0f%%", (moment.emotionScore + 1) / 2 * 100))
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundColor(accentColor)
                 .frame(width: 36, alignment: .trailing)
         }

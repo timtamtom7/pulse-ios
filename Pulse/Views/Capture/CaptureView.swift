@@ -95,10 +95,10 @@ struct AnalysisResultSheet: View {
 
                                 GeometryReader { geometry in
                                     ZStack(alignment: .leading) {
-                                        RoundedRectangle(cornerRadius: 4)
+                                        RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                                             .fill(Theme.Colors.softBlush)
 
-                                        RoundedRectangle(cornerRadius: 4)
+                                        RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                                             .fill(Theme.Colors.emotionColor(for: result.score))
                                             .frame(width: geometry.size.width * CGFloat((result.score + 1) / 2))
                                     }

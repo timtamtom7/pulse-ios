@@ -226,7 +226,7 @@ struct AppStoreListingView: View {
         HStack(spacing: Theme.Spacing.sm) {
             Image(systemName: "arrow.right")
                 .foregroundColor(Theme.Colors.primaryAccent)
-                .font(.system(size: 10))
+                .font(.system(size: 11))
 
             Text(text)
                 .font(Theme.Typography.captionFont)
@@ -317,12 +317,12 @@ struct CategoryBadge: View {
 
     var body: some View {
         Text(text)
-            .font(.system(size: 10, weight: .semibold))
+            .font(.system(size: 11, weight: .semibold))
             .foregroundColor(Theme.Colors.mutedRose)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(Theme.Colors.softBlush)
-            .cornerRadius(8)
+            .cornerRadius(Theme.CornerRadius.small)
     }
 }
 

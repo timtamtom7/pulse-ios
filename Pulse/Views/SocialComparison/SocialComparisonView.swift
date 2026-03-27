@@ -257,11 +257,11 @@ struct PercentileCard: View {
                 // Progress bar
                 GeometryReader { geometry in
                     ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 4)
+                        RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                             .fill(Theme.Colors.softBlush)
                             .frame(height: 8)
 
-                        RoundedRectangle(cornerRadius: 4)
+                        RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                             .fill(Theme.Colors.emotionGradient)
                             .frame(width: geometry.size.width * CGFloat(comparison.percentile) / 100.0, height: 8)
                     }

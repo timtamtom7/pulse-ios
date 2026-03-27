@@ -7,7 +7,12 @@ struct PulseButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            guard !isDisabled else { return }
+            let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+            impactFeedback.impactOccurred()
+            action()
+        }) {
             HStack(spacing: Theme.Spacing.sm) {
                 Image(systemName: icon)
                     .font(.system(size: 16, weight: .medium))
@@ -38,6 +43,8 @@ struct PulseButton: View {
             )
         }
         .disabled(isDisabled)
+        .accessibilityLabel("\(title) button")
+        .accessibilityHint(isDisabled ? "This action is currently disabled" : "Double tap to \(title.lowercased())")
         .scaleEffect(isDisabled ? 1.0 : 1.0)
         .animation(.easeInOut(duration: 0.1), value: isDisabled)
     }

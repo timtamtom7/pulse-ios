@@ -19,7 +19,7 @@ struct TimelineDayRow: View {
 
             // Emotion bar
             HStack(spacing: Theme.Spacing.md) {
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.extraSmall)
                     .fill(summary.dominantEmotionColor)
                     .frame(width: 4)
 
