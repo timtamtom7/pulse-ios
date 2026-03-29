@@ -101,6 +101,7 @@
 		D7123D5AE753AAF85129B00D /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */; };
 		D7D58D3484234B061454A3E5 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADA188CF0828C3B20B6936 /* MoodEntry.swift */; };
 		D84D1095068E3C0D3E9F827F /* LegacyExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F3A405AD204A7C9676038 /* LegacyExportService.swift */; };
+		D96CA8ABDFB795EAB9A0C337 /* AIInsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E6443041F09DEB27EBA81 /* AIInsightService.swift */; };
 		D9D05972EF49B600D88EBB62 /* PulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EB1C61393EDF4F95D69B8 /* PulseView.swift */; };
 		DC07E6DA1C9C068A6A5BD0BF /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC6AB7EB48CA0FC358DE75 /* HealthKitService.swift */; };
 		DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384598CDEFC74771C10C8245 /* CaptureView.swift */; };
@@ -229,6 +230,7 @@
 		C7E8C459735EF740FF16046A /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		CA7F1180657811E3AA37BF36 /* DataBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBrowserView.swift; sourceTree = "<group>"; };
 		CBC8AE5BF7C0419018C1192A /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
+		D17E6443041F09DEB27EBA81 /* AIInsightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInsightService.swift; sourceTree = "<group>"; };
 		D2C41A8E4F0AA4EDF5D9F871 /* PulseR12R20Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseR12R20Service.swift; sourceTree = "<group>"; };
 		D7DA36EF3785615B971323AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE9BDFD724508E26B5E9218A /* TrustedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedCircleView.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 		DD8A68E94B2A5686C1410535 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D17E6443041F09DEB27EBA81 /* AIInsightService.swift */,
 				21E322C2019CB345408743B8 /* AnalysisService.swift */,
 				44C3781E1F292504B35F2F88 /* CorrelationService.swift */,
 				F1E46ABFF71739995361C240 /* DatabaseService.swift */,
@@ -793,6 +796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96CA8ABDFB795EAB9A0C337 /* AIInsightService.swift in Sources */,
 				27CD7FFEFD0C655F6CCFACEC /* AnalysisService.swift in Sources */,
 				D1C41CA7E4290F9394CF898E /* AppStoreListingView.swift in Sources */,
 				DE6003C9C9BD62CEDB075784 /* CaptureView.swift in Sources */,
