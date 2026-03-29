@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MacContentView: View {
     @State private var selectedTab: MacTab = .insights
+    @State private var selectedSocialTab: SocialSubTab = .moodChains
     @State private var viewModel = PulseViewModel()
     @State private var timelineViewModel = TimelineViewModel()
     @State private var captureViewModel = CaptureViewModel()
@@ -9,6 +10,7 @@ struct MacContentView: View {
     enum MacTab: String, CaseIterable {
         case insights = "Insights"
         case timeline = "Timeline"
+        case social = "Social"
         case capture = "Capture"
         case settings = "Settings"
 
@@ -16,8 +18,21 @@ struct MacContentView: View {
             switch self {
             case .insights: return "heart.fill"
             case .timeline: return "calendar"
+            case .social: return "person.2.fill"
             case .capture: return "plus.circle.fill"
             case .settings: return "gearshape.fill"
+            }
+        }
+    }
+
+    enum SocialSubTab: String, CaseIterable {
+        case moodChains = "Mood Chains"
+        case friendsFeed = "Friends Feed"
+
+        var icon: String {
+            switch self {
+            case .moodChains: return "link"
+            case .friendsFeed: return "person.2"
             }
         }
     }
@@ -119,6 +134,8 @@ struct MacContentView: View {
             MacInsightsView(viewModel: viewModel)
         case .timeline:
             MacTimelineView(viewModel: timelineViewModel)
+        case .social:
+            SocialView(selectedSubTab: $selectedSocialTab)
         case .capture:
             MacCaptureView(viewModel: captureViewModel)
         case .settings:

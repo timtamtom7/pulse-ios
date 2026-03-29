@@ -32,6 +32,8 @@ struct TrustedMember: Identifiable, Codable, Equatable {
             case .other: return "person.fill.questionmark"
             }
         }
+
+        var displayName: String { rawValue }
     }
 
     init(id: UUID = UUID(), name: String, relationship: Relationship, isEnabled: Bool = true, joinedAt: Date = Date(), lastSharedAt: Date? = nil) {
@@ -77,6 +79,14 @@ struct CircleShare: Identifiable, Codable {
             switch self {
             case .up: return "Trending up"
             case .down: return "Trending down"
+            case .stable: return "Stable"
+            }
+        }
+
+        var displayName: String {
+            switch self {
+            case .up: return "Up"
+            case .down: return "Down"
             case .stable: return "Stable"
             }
         }
