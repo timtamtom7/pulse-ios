@@ -46,6 +46,11 @@ enum MacTheme {
         )
 
         static let cardShadow = charcoal.opacity(0.08)
+
+        // Semantic colors for dark/light mode compatibility
+        static let destructive = Color(hex: "C4706A") // MutedRose — destructive actions
+        static let destructiveText = Color(hex: "A35D54") // DustyRose — destructive text on light backgrounds
+        static let primaryButtonText = warmWhite // White text on colored buttons
     }
 
     // MARK: - Typography

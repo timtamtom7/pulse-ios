@@ -289,13 +289,13 @@ struct MacSettingsView: View {
                     HStack(spacing: MacTheme.Spacing.md) {
                         Image(systemName: "trash.fill")
                             .font(.system(size: 18))
-                            .foregroundColor(.red)
+                            .foregroundColor(MacTheme.Colors.destructive)
                             .frame(width: 32)
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Delete All Data")
                                 .font(MacTheme.Typography.calloutFont)
-                                .foregroundColor(.red)
+                                .foregroundColor(MacTheme.Colors.destructiveText)
 
                             Text("Permanently remove all moments and insights")
                                 .font(MacTheme.Typography.captionFont)

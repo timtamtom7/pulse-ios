@@ -413,7 +413,7 @@ struct MacMomentDetailSheet: View {
                 Button("Delete") {
                     onDelete()
                 }
-                .foregroundColor(.red)
+                .foregroundColor(MacTheme.Colors.destructiveText)
                 .font(MacTheme.Typography.calloutFont)
             }
 
