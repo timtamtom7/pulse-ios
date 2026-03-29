@@ -112,6 +112,7 @@ targets:
       - path: PulseMac
         excludes:
           - "**/.DS_Store"
+          - Marketing
       - path: Pulse/Models
         excludes:
           - "WatchSharedModels.swift"
