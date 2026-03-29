@@ -126,6 +126,7 @@ targets:
       - path: Pulse/Views/Components
         excludes:
           - "MomentCard.swift"
+          - "PulseButton.swift"
       - path: Pulse/Theme
       - path: Pulse/Resources
       - path: Pulse/Views/Pulse

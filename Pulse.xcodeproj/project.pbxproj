@@ -22,7 +22,6 @@
 		18499B99AF84184963376190 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */; };
 		1B93EF5FBA3B10B7B56C9F0B /* MacSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A55CC1E72CD94B90AED1F /* MacSettingsView.swift */; };
 		210D01965FB7C1D37C121B5F /* MacCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C586B7A842723A3B680A6502 /* MacCaptureView.swift */; };
-		21F13801AC3B48B7347B00C5 /* PulseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81328CA01D371325C80C4D9A /* PulseButton.swift */; };
 		234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FD4D83DC12598E4BC4849 /* Theme.swift */; };
 		2629CC0841AD5A33DCF7CF4E /* PulseR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAD81E34BA54856226706E /* PulseR11Service.swift */; };
 		2657123E685AA51E56DA94D0 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
@@ -724,7 +723,6 @@
 				01AEADCAB5F2EEAEB5878370 /* MenuBarExtraView.swift in Sources */,
 				50A2DF20FD1C621A59E0638B /* Moment.swift in Sources */,
 				A6AF69B95497C831E63D98D4 /* PermissionService.swift in Sources */,
-				21F13801AC3B48B7347B00C5 /* PulseButton.swift in Sources */,
 				2E7F139135A456B0258D0541 /* PulseEmptyIllustration.swift in Sources */,
 				007E4B140B39FDD13CD195B2 /* PulseMacApp.swift in Sources */,
 				ED4539F0105B0DE0790455CB /* PulseViewModel.swift in Sources */,
