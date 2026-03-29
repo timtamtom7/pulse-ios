@@ -32,6 +32,7 @@
 		28B5EEB727E16919F33635A4 /* Insight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4011D2D440F9764EFC84E1 /* Insight.swift */; };
 		29229477F6786044E5FCEF49 /* MoodCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AB45CA9B1B4983C19ED39E /* MoodCheckInView.swift */; };
 		2AAFE14FB319A53254F1093C /* InsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B870C215C3FE255F8F339 /* InsightService.swift */; };
+		2B969F5B5A65CFF7E3CF138D /* MoodSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD2E367F1D380D7D19C97A /* MoodSharingService.swift */; };
 		2E7F139135A456B0258D0541 /* PulseEmptyIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A432377A8506C7019E6CD /* PulseEmptyIllustration.swift */; };
 		2F9D77AF9774848CC13B25E4 /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83803A335114EAEA6724ED6D /* AnalysisService.swift */; };
 		32254365C778BCD1296866E0 /* EmotionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A30438F425DA40663CA1E /* EmotionTag.swift */; };
@@ -54,6 +55,7 @@
 		5CBB11DBC2E79B1875369AF0 /* PulseWatchWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAB57CBE4767902029CF42 /* PulseWatchWatchApp.swift */; };
 		5EBD74A5E88A2C72A8482454 /* MacMoodChainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E732C326361C2297D28EB1B6 /* MacMoodChainsView.swift */; };
 		616B1E15A99B07B4D65A228F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CA4B8BDC045C16F231C4E3 /* Assets.xcassets */; };
+		61DF8203E448A3BBBB9995B6 /* AIMoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4ADC6AE74916BD1722DB1 /* AIMoodService.swift */; };
 		672556E24CD78D60071CB606 /* InsightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */; };
 		69D7CE48649E888510F6AC97 /* LAUNCH_CHECKLIST.md in Resources */ = {isa = PBXBuildFile; fileRef = 6309EE605E4D896662DA6492 /* LAUNCH_CHECKLIST.md */; };
 		6B6A8DECED199C15FCBACEE4 /* CaptureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A700C13FB8931C38A6665D /* CaptureViewModel.swift */; };
@@ -158,6 +160,7 @@
 		2E29E513C768BA241B51BD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2E99A99D4A8796EC459B3B40 /* JournalCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCaptureView.swift; sourceTree = "<group>"; };
 		2EAA875E4E20A17A38AF5CD2 /* InsightCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightCardView.swift; sourceTree = "<group>"; };
+		2EF4ADC6AE74916BD1722DB1 /* AIMoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIMoodService.swift; sourceTree = "<group>"; };
 		2F603A9B0A82C263E582C0A8 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		30C71A89B54A9A8DAEB9D041 /* PulseMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseMac.entitlements; sourceTree = "<group>"; };
 		3231541475AF8FC5B8274094 /* PulseMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +212,7 @@
 		9EAD1B8772FA16C72B000C10 /* FamilyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCircleView.swift; sourceTree = "<group>"; };
 		A10844D0530C016286520DB7 /* MemorialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorialService.swift; sourceTree = "<group>"; };
 		A2D0461B01376DC3C8A4DFD0 /* EmotionalForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionalForecastService.swift; sourceTree = "<group>"; };
+		A3AD2E367F1D380D7D19C97A /* MoodSharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSharingService.swift; sourceTree = "<group>"; };
 		A6B85B6F1ED8972408A5A1F2 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
 		A98D39C3A9029D1C2197E42D /* PulseWatchWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseWatchWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9D408327FE292D049596F5 /* MacFriendsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacFriendsFeedView.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				EEAE5B7961516E2CA40797AB /* AIInsightService.swift */,
+				2EF4ADC6AE74916BD1722DB1 /* AIMoodService.swift */,
 				83803A335114EAEA6724ED6D /* AnalysisService.swift */,
 				58A700C13FB8931C38A6665D /* CaptureViewModel.swift */,
 				2974661DF3381EE9C5C8331F /* DatabaseService.swift */,
@@ -561,6 +566,7 @@
 				B81B870C215C3FE255F8F339 /* InsightService.swift */,
 				1D3F3A405AD204A7C9676038 /* LegacyExportService.swift */,
 				A10844D0530C016286520DB7 /* MemorialService.swift */,
+				A3AD2E367F1D380D7D19C97A /* MoodSharingService.swift */,
 				2F603A9B0A82C263E582C0A8 /* PermissionService.swift */,
 				83AAD81E34BA54856226706E /* PulseR11Service.swift */,
 				D2C41A8E4F0AA4EDF5D9F871 /* PulseR12R20Service.swift */,
@@ -744,6 +750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20735609B90C2BC3623EC0A8 /* AIInsightService.swift in Sources */,
+				61DF8203E448A3BBBB9995B6 /* AIMoodService.swift in Sources */,
 				2F9D77AF9774848CC13B25E4 /* AnalysisService.swift in Sources */,
 				6B6A8DECED199C15FCBACEE4 /* CaptureViewModel.swift in Sources */,
 				427FB5C7C26BB1FE60D76213 /* DataSource.swift in Sources */,
@@ -834,6 +841,7 @@
 				152855E4416B98B221DDA5D3 /* MemorialService.swift in Sources */,
 				B7AA19FB89D609BE34ACE904 /* Moment.swift in Sources */,
 				B00128574A64C562778FC551 /* MomentCard.swift in Sources */,
+				2B969F5B5A65CFF7E3CF138D /* MoodSharingService.swift in Sources */,
 				A6A67B77283BB5D065DA2CDD /* PermissionService.swift in Sources */,
 				D7123D5AE753AAF85129B00D /* PhotoCaptureView.swift in Sources */,
 				C1A18B955B77F2AD68103B23 /* PrivacyView.swift in Sources */,
