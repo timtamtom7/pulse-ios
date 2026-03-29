@@ -21,7 +21,7 @@ struct PulseMacApp: App {
         } label: {
             Image(systemName: "moon.fill")
                 .font(.system(size: 14))
-                .foregroundColor(Color(hex: "C4706A"))
+                .foregroundColor(MacTheme.Colors.mutedRose)
         }
         .menuBarExtraStyle(.window)
     }
@@ -46,18 +46,18 @@ struct MenuBarExtraContent: View {
             // Header
             HStack {
                 Image(systemName: "heart.fill")
-                    .foregroundColor(Color(hex: "C4706A"))
+                    .foregroundColor(MacTheme.Colors.mutedRose)
                     .font(.system(size: 14))
 
                 Text("How are you?")
                     .font(.system(size: 13, weight: .semibold))
-                    .foregroundColor(Color(hex: "3D3531"))
+                    .foregroundColor(MacTheme.Colors.charcoal)
 
                 Spacer()
 
                 Text(todayLabel)
                     .font(.system(size: 11))
-                    .foregroundColor(Color(hex: "8B7B74"))
+                    .foregroundColor(MacTheme.Colors.warmGray)
             }
 
             // Quick emotion buttons
@@ -89,7 +89,7 @@ struct MenuBarExtraContent: View {
 
                             Text(emotion.label)
                                 .font(.system(size: 9))
-                                .foregroundColor(Color(hex: "3D3531"))
+                                .foregroundColor(MacTheme.Colors.charcoal)
                         }
                     }
                     .buttonStyle(.plain)
@@ -102,7 +102,7 @@ struct MenuBarExtraContent: View {
                     .textFieldStyle(.plain)
                     .font(.system(size: 12))
                     .padding(8)
-                    .background(Color(hex: "F5E6E0"))
+                    .background(MacTheme.Colors.softBlush)
                     .cornerRadius(6)
             }
 
@@ -114,10 +114,10 @@ struct MenuBarExtraContent: View {
                     openMainApp()
                 }
                 .font(.system(size: 12, weight: .medium))
-                .foregroundColor(Color(hex: "3D3531"))
+                .foregroundColor(MacTheme.Colors.charcoal)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
-                .background(Color(hex: "F5E6E0"))
+                .background(MacTheme.Colors.softBlush)
                 .cornerRadius(6)
 
                 Spacer()
@@ -130,7 +130,7 @@ struct MenuBarExtraContent: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(Color(hex: "9CAF88"))
+                    .background(MacTheme.Colors.calmSage)
                     .cornerRadius(6)
                 }
 
@@ -138,12 +138,12 @@ struct MenuBarExtraContent: View {
                     NSApplication.shared.terminate(nil)
                 }
                 .font(.system(size: 12))
-                .foregroundColor(Color(hex: "8B7B74"))
+                .foregroundColor(MacTheme.Colors.warmGray)
             }
         }
         .padding(16)
         .frame(width: 280)
-        .background(Color(hex: "FDF8F3"))
+        .background(MacTheme.Colors.cream)
     }
 
     private var todayLabel: String {

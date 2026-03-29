@@ -85,6 +85,8 @@ struct MacContentView: View {
                         .cornerRadius(MacTheme.CornerRadius.medium)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("\(tab.rawValue) tab")
+                    .accessibilityHint("Switch to \(tab.rawValue) view")
                 }
             }
             .padding(.horizontal, 12)

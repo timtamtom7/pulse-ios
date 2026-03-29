@@ -16,18 +16,18 @@ struct MenuBarExtraView: View {
         VStack(spacing: 12) {
             HStack {
                 Image(systemName: "heart.fill")
-                    .foregroundColor(Color(hex: "C4706A"))
+                    .foregroundColor(MacTheme.Colors.mutedRose)
                     .font(.system(size: 14))
 
                 Text("How are you?")
                     .font(.system(size: 13, weight: .semibold))
-                    .foregroundColor(Color(hex: "3D3531"))
+                    .foregroundColor(MacTheme.Colors.charcoal)
 
                 Spacer()
 
                 Text(todayLabel)
                     .font(.system(size: 11))
-                    .foregroundColor(Color(hex: "8B7B74"))
+                    .foregroundColor(MacTheme.Colors.warmGray)
             }
 
             HStack(spacing: 8) {
@@ -58,10 +58,12 @@ struct MenuBarExtraView: View {
 
                             Text(emotion.label)
                                 .font(.system(size: 9))
-                                .foregroundColor(Color(hex: "3D3531"))
+                                .foregroundColor(MacTheme.Colors.charcoal)
                         }
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Select \(emotion.label) emotion")
+                    .accessibilityHint("Tap to record your \(emotion.label) mood")
                 }
             }
 
@@ -70,7 +72,7 @@ struct MenuBarExtraView: View {
                     .textFieldStyle(.plain)
                     .font(.system(size: 12))
                     .padding(8)
-                    .background(Color(hex: "F5E6E0"))
+                    .background(MacTheme.Colors.softBlush)
                     .cornerRadius(6)
             }
 
@@ -81,11 +83,12 @@ struct MenuBarExtraView: View {
                     NSApplication.shared.activate(ignoringOtherApps: true)
                 }
                 .font(.system(size: 12, weight: .medium))
-                .foregroundColor(Color(hex: "3D3531"))
+                .foregroundColor(MacTheme.Colors.charcoal)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
-                .background(Color(hex: "F5E6E0"))
+                .background(MacTheme.Colors.softBlush)
                 .cornerRadius(6)
+                .accessibilityLabel("Open Pulse app")
 
                 Spacer()
 
@@ -97,20 +100,22 @@ struct MenuBarExtraView: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(Color(hex: "9CAF88"))
+                    .background(MacTheme.Colors.calmSage)
                     .cornerRadius(6)
+                    .accessibilityLabel("Save mood entry")
                 }
 
                 Button("Quit") {
                     NSApplication.shared.terminate(nil)
                 }
                 .font(.system(size: 12))
-                .foregroundColor(Color(hex: "8B7B74"))
+                .foregroundColor(MacTheme.Colors.warmGray)
+                .accessibilityLabel("Quit Pulse")
             }
         }
         .padding(16)
         .frame(width: 280)
-        .background(Color(hex: "FDF8F3"))
+        .background(MacTheme.Colors.cream)
     }
 
     private var todayLabel: String {
