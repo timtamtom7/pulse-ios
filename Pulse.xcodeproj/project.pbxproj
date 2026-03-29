@@ -21,8 +21,10 @@
 		1788A3FD64252998F9112A94 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C426BF240B59A2B761BF9287 /* TimelineViewModel.swift */; };
 		18499B99AF84184963376190 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 481C569B7C9AB8DC061667C6 /* PrivacyInfo.xcprivacy */; };
 		1B93EF5FBA3B10B7B56C9F0B /* MacSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A55CC1E72CD94B90AED1F /* MacSettingsView.swift */; };
+		20735609B90C2BC3623EC0A8 /* AIInsightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE5B7961516E2CA40797AB /* AIInsightService.swift */; };
 		210D01965FB7C1D37C121B5F /* MacCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C586B7A842723A3B680A6502 /* MacCaptureView.swift */; };
 		234DA142D45716DD4BFD7C41 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FD4D83DC12598E4BC4849 /* Theme.swift */; };
+		249874D654F7DE6C730400D6 /* PatternDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD16BC3BD51BE91684B6F1 /* PatternDetectionService.swift */; };
 		2629CC0841AD5A33DCF7CF4E /* PulseR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAD81E34BA54856226706E /* PulseR11Service.swift */; };
 		2657123E685AA51E56DA94D0 /* TimelineDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E19296B68B9F1075119CE /* TimelineDayRow.swift */; };
 		27CD7FFEFD0C655F6CCFACEC /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E322C2019CB345408743B8 /* AnalysisService.swift */; };
@@ -178,6 +180,7 @@
 		731D9A07B516898BBBBD541D /* MacTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTheme.swift; sourceTree = "<group>"; };
 		73ADA188CF0828C3B20B6936 /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		73D5B744BB978121FC9A901D /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		76BD16BC3BD51BE91684B6F1 /* PatternDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDetectionService.swift; sourceTree = "<group>"; };
 		7A5EAB4F417AD29E2156974E /* MomentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCard.swift; sourceTree = "<group>"; };
 		7D4011D2D440F9764EFC84E1 /* Insight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insight.swift; sourceTree = "<group>"; };
 		7F3C395B30D555628914AD59 /* PulseWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseWatch.entitlements; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		E4D10739317FA6FB82733079 /* PulseMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMacApp.swift; sourceTree = "<group>"; };
 		E7CE972685392B30B7E85FE8 /* AppStoreListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreListingView.swift; sourceTree = "<group>"; };
 		ED224FB7252AF2338B7538E4 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
+		EEAE5B7961516E2CA40797AB /* AIInsightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInsightService.swift; sourceTree = "<group>"; };
 		EF908D0F7681997FD55DFCC9 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		F1E46ABFF71739995361C240 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F76E0B0971A3D5FFE79D25DD /* PulseWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWatchApp.swift; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 		6CD53EDB3126075877108AE4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EEAE5B7961516E2CA40797AB /* AIInsightService.swift */,
 				83803A335114EAEA6724ED6D /* AnalysisService.swift */,
 				58A700C13FB8931C38A6665D /* CaptureViewModel.swift */,
 				2974661DF3381EE9C5C8331F /* DatabaseService.swift */,
@@ -411,6 +416,7 @@
 				731D9A07B516898BBBBD541D /* MacTheme.swift */,
 				696453C4A85C5C52304B1050 /* MacTimelineView.swift */,
 				ED224FB7252AF2338B7538E4 /* MenuBarExtraView.swift */,
+				76BD16BC3BD51BE91684B6F1 /* PatternDetectionService.swift */,
 				C7E8C459735EF740FF16046A /* PermissionService.swift */,
 				E4D10739317FA6FB82733079 /* PulseMacApp.swift */,
 			);
@@ -705,6 +711,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20735609B90C2BC3623EC0A8 /* AIInsightService.swift in Sources */,
 				2F9D77AF9774848CC13B25E4 /* AnalysisService.swift in Sources */,
 				6B6A8DECED199C15FCBACEE4 /* CaptureViewModel.swift in Sources */,
 				427FB5C7C26BB1FE60D76213 /* DataSource.swift in Sources */,
@@ -722,6 +729,7 @@
 				4CD9BA002275892A21A8A67C /* MacTimelineView.swift in Sources */,
 				01AEADCAB5F2EEAEB5878370 /* MenuBarExtraView.swift in Sources */,
 				50A2DF20FD1C621A59E0638B /* Moment.swift in Sources */,
+				249874D654F7DE6C730400D6 /* PatternDetectionService.swift in Sources */,
 				A6AF69B95497C831E63D98D4 /* PermissionService.swift in Sources */,
 				2E7F139135A456B0258D0541 /* PulseEmptyIllustration.swift in Sources */,
 				007E4B140B39FDD13CD195B2 /* PulseMacApp.swift in Sources */,

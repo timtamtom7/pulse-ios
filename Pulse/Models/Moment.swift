@@ -1,4 +1,5 @@
 import Foundation
+import NaturalLanguage
 
 enum MomentType: String, Codable, CaseIterable {
     case photo
@@ -62,5 +63,45 @@ struct Moment: Identifiable, Codable, Equatable {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         return formatter.string(from: timestamp)
+    }
+
+    // MARK: - R11: Sentiment Analysis
+
+    /// Sentiment score computed via Apple's NaturalLanguage framework (-1.0 to 1.0)
+    var sentimentScore: Double {
+        let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        tagger.string = content
+
+        var totalScore: Double = 0
+        var count = 0
+
+        tagger.enumerateTags(in: content.startIndex..<content.endIndex, unit: .sentence, scheme: .sentimentScore, options: []) { tag, _ in
+            if let tag = tag, let score = Double(tag.rawValue) {
+                totalScore += score
+                count += 1
+            }
+            return true
+        }
+
+        return count > 0 ? totalScore / Double(count) : 0
+    }
+
+    /// Analyze raw text and return a sentiment score (-1.0 to 1.0)
+    static func analyzeSentiment(text: String) -> Double {
+        let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        tagger.string = text
+
+        var totalScore: Double = 0
+        var count = 0
+
+        tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .paragraph, scheme: .sentimentScore, options: []) { tag, _ in
+            if let tag = tag, let score = Double(tag.rawValue) {
+                totalScore += score
+                count += 1
+            }
+            return true
+        }
+
+        return count > 0 ? totalScore / Double(count) : 0
     }
 }

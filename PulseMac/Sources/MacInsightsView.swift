@@ -89,6 +89,11 @@ struct MacInsightsView: View {
 
     @ViewBuilder
     private var insightsContent: some View {
+        // R11: AI Analysis Section
+        if !viewModel.recentMoments.isEmpty {
+            aiAnalysisSection
+        }
+
         // Insight Card of the Week
         if let insight = viewModel.weeklyInsight {
             insightCard(insight)
@@ -111,6 +116,170 @@ struct MacInsightsView: View {
         if !viewModel.recentMoments.isEmpty {
             recentMomentsSection
         }
+    }
+
+    // MARK: - R11: AI Analysis Section
+
+    private var aiAnalysisSection: some View {
+        VStack(alignment: .leading, spacing: MacTheme.Spacing.md) {
+            HStack(spacing: 8) {
+                Image(systemName: "brain.head.profile")
+                    .foregroundColor(MacTheme.Colors.mutedRose)
+                    .font(.system(size: 18))
+
+                Text("AI Analysis")
+                    .font(MacTheme.Typography.headlineFont)
+                    .foregroundColor(MacTheme.Colors.charcoal)
+
+                Spacer()
+
+                Text("This Week")
+                    .font(MacTheme.Typography.captionFont)
+                    .foregroundColor(MacTheme.Colors.warmGray)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(MacTheme.Colors.softBlush)
+                    .cornerRadius(6)
+            }
+
+            // AI Summary Card
+            aiSummaryCard
+
+            // Emotional Arc
+            if !(viewModel.aiInsight?.emotionalArc.isEmpty ?? true) {
+                emotionalArcCard
+            }
+
+            // Pattern Insights
+            if let patterns = viewModel.aiInsight?.patterns, !patterns.isEmpty {
+                patternInsightsList(patterns)
+            }
+
+            // AI Advice
+            if let advice = viewModel.aiInsight?.advice, !advice.isEmpty {
+                aiAdviceCard(advice)
+            }
+        }
+        .opacity(appeared ? 1 : 0)
+        .offset(y: appeared ? 0 : 10)
+    }
+
+    private var aiSummaryCard: some View {
+        VStack(alignment: .leading, spacing: MacTheme.Spacing.sm) {
+            HStack {
+                Circle()
+                    .fill(viewModel.aiInsight?.dominantEmotionColor ?? MacTheme.Colors.neutral)
+                    .frame(width: 12, height: 12)
+
+                Text("Dominant emotion: \(viewModel.aiInsight?.dominantEmotionLabel ?? "Neutral")")
+                    .font(MacTheme.Typography.calloutFont)
+                    .foregroundColor(MacTheme.Colors.charcoal)
+
+                Spacer()
+            }
+
+            Text(viewModel.aiInsight?.summary ?? "Analyzing your week...")
+                .font(MacTheme.Typography.bodyFont)
+                .foregroundColor(MacTheme.Colors.warmGray)
+                .lineLimit(4)
+        }
+        .padding(MacTheme.Spacing.cardPadding)
+        .background(
+            LinearGradient(
+                colors: [
+                    (viewModel.aiInsight?.dominantEmotionColor ?? MacTheme.Colors.neutral).opacity(0.08),
+                    MacTheme.Colors.warmWhite
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .cornerRadius(MacTheme.CornerRadius.card)
+        .shadow(color: MacTheme.Colors.cardShadow, radius: 12, y: 4)
+    }
+
+    private var emotionalArcCard: some View {
+        VStack(alignment: .leading, spacing: MacTheme.Spacing.sm) {
+            HStack {
+                Image(systemName: "chart.lineuptrendpath")
+                    .foregroundColor(MacTheme.Colors.gentleGold)
+                    .font(.system(size: 14))
+
+                Text("Emotional Arc")
+                    .font(MacTheme.Typography.calloutFont)
+                    .foregroundColor(MacTheme.Colors.charcoal)
+            }
+
+            Text("Based on your entries this week... \(viewModel.aiInsight?.emotionalArc ?? "")")
+                .font(MacTheme.Typography.bodyFont)
+                .foregroundColor(MacTheme.Colors.warmGray)
+                .lineLimit(3)
+        }
+        .padding(MacTheme.Spacing.cardPadding)
+        .background(MacTheme.Colors.warmWhite)
+        .cornerRadius(MacTheme.CornerRadius.card)
+        .shadow(color: MacTheme.Colors.cardShadow, radius: 8, y: 2)
+    }
+
+    private func patternInsightsList(_ patterns: [String]) -> some View {
+        VStack(alignment: .leading, spacing: MacTheme.Spacing.sm) {
+            HStack {
+                Image(systemName: "lightbulb.fill")
+                    .foregroundColor(MacTheme.Colors.gentleGold)
+                    .font(.system(size: 14))
+
+                Text("Pattern Insights")
+                    .font(MacTheme.Typography.calloutFont)
+                    .foregroundColor(MacTheme.Colors.charcoal)
+            }
+
+            ForEach(patterns.prefix(4), id: \.self) { pattern in
+                HStack(alignment: .top, spacing: 10) {
+                    Image(systemName: "sparkle")
+                        .font(.system(size: 10))
+                        .foregroundColor(MacTheme.Colors.mutedRose)
+                        .padding(.top, 4)
+
+                    Text(pattern)
+                        .font(MacTheme.Typography.captionFont)
+                        .foregroundColor(MacTheme.Colors.warmGray)
+                        .lineLimit(2)
+                }
+            }
+        }
+        .padding(MacTheme.Spacing.cardPadding)
+        .background(MacTheme.Colors.warmWhite)
+        .cornerRadius(MacTheme.CornerRadius.card)
+        .shadow(color: MacTheme.Colors.cardShadow, radius: 8, y: 2)
+    }
+
+    private func aiAdviceCard(_ advice: String) -> some View {
+        VStack(alignment: .leading, spacing: MacTheme.Spacing.sm) {
+            HStack {
+                Image(systemName: "text.bubble.fill")
+                    .foregroundColor(MacTheme.Colors.calmSage)
+                    .font(.system(size: 14))
+
+                Text("Personalized Insight")
+                    .font(MacTheme.Typography.calloutFont)
+                    .foregroundColor(MacTheme.Colors.charcoal)
+            }
+
+            Text(advice)
+                .font(MacTheme.Typography.bodyFont)
+                .foregroundColor(MacTheme.Colors.warmGray)
+                .lineLimit(4)
+        }
+        .padding(MacTheme.Spacing.cardPadding)
+        .background(
+            LinearGradient(
+                colors: [MacTheme.Colors.calmSage.opacity(0.08), MacTheme.Colors.warmWhite],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .cornerRadius(MacTheme.CornerRadius.card)
+        .shadow(color: MacTheme.Colors.cardShadow, radius: 8, y: 2)
     }
 
     // MARK: - Insight Card

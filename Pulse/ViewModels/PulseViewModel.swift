@@ -25,6 +25,9 @@ final class PulseViewModel: @unchecked Sendable {
     var percentileComparisons: [PercentileComparison] = []
     var overallPercentileInsight: PercentileInsight?
 
+    // R11: AI Emotional Insights
+    var aiInsight: AIInsight?
+
     private let database = DatabaseService.shared
 
     init() {
@@ -71,6 +74,9 @@ final class PulseViewModel: @unchecked Sendable {
         }
 
         generateMoodRing(from: recentMoments)
+
+        // R11: Generate AI emotional insights
+        aiInsight = AIInsightService.shared.generateWeeklyAnalysis(entries: recentMoments)
     }
 
     private func generateMoodRing(from moments: [Moment]) {
