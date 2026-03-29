@@ -1,35 +1,6 @@
 import SwiftUI
 
-@main
-struct PulseMacApp: App {
-    @State private var showingPopover = false
-
-    var body: some Scene {
-        WindowGroup {
-            MacContentView()
-                .preferredColorScheme(.light)
-        }
-        .windowStyle(.hiddenTitleBar)
-        .windowResizability(.contentSize)
-        .commands {
-            CommandGroup(replacing: .newItem) { }
-        }
-
-        // Menu bar extra for quick mood capture
-        MenuBarExtra {
-            MenuBarExtraContent()
-        } label: {
-            Image(systemName: "moon.fill")
-                .font(.system(size: 14))
-                .foregroundColor(Color(hex: "C4706A"))
-        }
-        .menuBarExtraStyle(.window)
-    }
-}
-
-// MARK: - Menu Bar Extra Content
-
-struct MenuBarExtraContent: View {
+struct MenuBarExtraView: View {
     @State private var selectedEmotion: EmotionCategory?
     @State private var note = ""
 
@@ -43,7 +14,6 @@ struct MenuBarExtraContent: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            // Header
             HStack {
                 Image(systemName: "heart.fill")
                     .foregroundColor(Color(hex: "C4706A"))
@@ -60,7 +30,6 @@ struct MenuBarExtraContent: View {
                     .foregroundColor(Color(hex: "8B7B74"))
             }
 
-            // Quick emotion buttons
             HStack(spacing: 8) {
                 ForEach(quickEmotions, id: \.category) { emotion in
                     Button {
@@ -96,7 +65,6 @@ struct MenuBarExtraContent: View {
                 }
             }
 
-            // Optional note
             if selectedEmotion != nil {
                 TextField("Add a note (optional)", text: $note)
                     .textFieldStyle(.plain)
@@ -108,10 +76,9 @@ struct MenuBarExtraContent: View {
 
             Divider()
 
-            // Actions
             HStack(spacing: 12) {
                 Button("Open Pulse") {
-                    openMainApp()
+                    NSApplication.shared.activate(ignoringOtherApps: true)
                 }
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(Color(hex: "3D3531"))
@@ -152,40 +119,33 @@ struct MenuBarExtraContent: View {
         return formatter.string(from: Date())
     }
 
-    private func openMainApp() {
-        NSApplication.shared.activate(ignoringOtherApps: true)
-    }
-
     private func saveQuickCapture() {
         guard let emotion = selectedEmotion else { return }
 
         let tag = EmotionTag(category: emotion, confidence: 0.8)
+        let score: Double
+        switch emotion {
+        case .joy: score = 0.9
+        case .trust: score = 0.7
+        case .anticipation: score = 0.5
+        case .surprise: score = 0.3
+        case .neutral: score = 0.0
+        case .sadness: score = -0.5
+        case .fear: score = -0.6
+        case .anger: score = -0.7
+        case .disgust: score = -0.8
+        }
+
         let moment = Moment(
             type: .journal,
             content: note.isEmpty ? "Quick mood check-in" : note,
-            emotionScore: emotionToScore(emotion),
+            emotionScore: score,
             emotionTags: [tag],
             note: note.isEmpty ? nil : note
         )
 
         try? DatabaseService.shared.insertMoment(moment)
-
-        // Reset
         selectedEmotion = nil
         note = ""
-    }
-
-    private func emotionToScore(_ emotion: EmotionCategory) -> Double {
-        switch emotion {
-        case .joy: return 0.9
-        case .trust: return 0.7
-        case .anticipation: return 0.5
-        case .surprise: return 0.3
-        case .neutral: return 0.0
-        case .sadness: return -0.5
-        case .fear: return -0.6
-        case .anger: return -0.7
-        case .disgust: return -0.8
-        }
     }
 }

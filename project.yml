@@ -112,13 +112,49 @@ targets:
       - path: PulseMac
         excludes:
           - "**/.DS_Store"
-      - path: Pulse
+      - path: Pulse/Models
         excludes:
-          - "**/.DS_Store"
-          - "Pulse/Views/Capture/"
-          - "Pulse/Views/Privacy/"
-          - "Pulse/Views/Timeline/"
-          - "Pulse/Views/Forecast/"
+          - "WatchSharedModels.swift"
+          - "PulseR12R20.swift"
+      - path: Pulse/ViewModels
+        excludes:
+          - "PrivacyViewModel.swift"
+          - "CaptureViewModel.swift"
+      - path: Pulse/Services
+        excludes:
+          - "**/*.swift"
+      - path: Pulse/Views/Components
+        excludes:
+          - "MomentCard.swift"
+      - path: Pulse/Theme
+      - path: Pulse/Resources
+      - path: Pulse/Views/Pulse
+        excludes:
+          - "ForecastView.swift"
+          - "InsightCardView.swift"
+          - "PulseView.swift"
+      - path: Pulse/Views/Timeline
+        excludes:
+          - "DayDetailView.swift"
+          - "TimelineView.swift"
+      - path: Pulse/Views/Capture
+        excludes:
+          - "PhotoCaptureView.swift"
+          - "VoiceCaptureView.swift"
+          - "JournalCaptureView.swift"
+          - "CaptureView.swift"
+      - path: Pulse/Views/Privacy
+        excludes:
+          - "DataSourcesView.swift"
+          - "DataBrowserView.swift"
+          - "LegacyExportView.swift"
+          - "SubscriptionsView.swift"
+          - "AppStoreListingView.swift"
+          - "LegalView.swift"
+          - "PrivacyView.swift"
+      - path: Pulse/Views/SocialComparison
+        excludes:
+          - "**/*.swift"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.pulse.app.mac
@@ -137,9 +173,7 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     entitlements:
       path: PulseMac/PulseMac.entitlements
-      properties:
-        com.apple.developer.healthkit: true
-        com.apple.developer.healthkit.access: []
+      properties: {}
     dependencies:
       - package: SQLite.swift
         product: SQLite
