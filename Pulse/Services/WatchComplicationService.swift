@@ -15,7 +15,7 @@ final class WatchComplicationService: @unchecked Sendable {
 
     /// Fetch the latest mood entry for complication display
     func latestMoodEntry() -> MoodEntry? {
-        guard let data = userDefaults?.data(forKey: "lastMoodEntry"),
+        guard let data = userDefaults.data(forKey: "lastMoodEntry"),
               let entry = try? JSONDecoder().decode(MoodEntry.self, from: data) else {
             return nil
         }
@@ -24,7 +24,7 @@ final class WatchComplicationService: @unchecked Sendable {
 
     /// Get recent mood entries for trend display
     func recentMoodEntries(days: Int = 7) -> [MoodEntry] {
-        guard let data = userDefaults?.data(forKey: "watchMoodEntries"),
+        guard let data = userDefaults.data(forKey: "watchMoodEntries"),
               let entries = try? JSONDecoder().decode([MoodEntry].self, from: data) else {
             return []
         }

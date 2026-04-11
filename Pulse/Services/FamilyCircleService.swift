@@ -2,7 +2,7 @@ import Foundation
 
 /// Service for managing Family Circle — aggregate emotional health of close group
 @Observable
-final class FamilyCircleService {
+final class FamilyCircleService: @unchecked Sendable {
     static let shared = FamilyCircleService()
 
     var familyMoments: [FamilyMoment] = []

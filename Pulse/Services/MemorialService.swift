@@ -3,7 +3,7 @@ import Foundation
 /// R9: Memorial Mode — when a loved one passes, their account becomes a memorial
 /// with read-only access to their emotional history
 @Observable
-final class MemorialService {
+final class MemorialService: @unchecked Sendable {
     static let shared = MemorialService()
 
     var memorialAccounts: [MemorialAccount] = []

@@ -2,7 +2,7 @@ import Foundation
 import SQLite
 
 @Observable
-final class DatabaseService {
+final class DatabaseService: @unchecked Sendable {
     private let databaseQueue = DispatchQueue(label: "com.pulse.database")
 
     private var _db: Connection?
@@ -12,7 +12,6 @@ final class DatabaseService {
     }
     static let shared = DatabaseService()
 
-    private var db: Connection?
     private let momentsTable = Table("moments")
     private let dataSourcesTable = Table("data_sources")
     private let insightsTable = Table("insights")
