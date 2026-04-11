@@ -2,7 +2,14 @@ import Foundation
 import SQLite
 
 @Observable
-final class DatabaseService: @unchecked Sendable {
+final class DatabaseService {
+    private let databaseQueue = DispatchQueue(label: "com.pulse.database")
+
+    private var _db: Connection?
+    private var db: Connection? {
+        get { databaseQueue.sync { _db } }
+        set { databaseQueue.sync { _db = newValue } }
+    }
     static let shared = DatabaseService()
 
     private var db: Connection?
@@ -50,6 +57,8 @@ final class DatabaseService: @unchecked Sendable {
             initializeDefaultDataSources()
         } catch {
             print("Database setup error: \(error)")
+            db = nil
+            return
         }
     }
 

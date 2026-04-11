@@ -92,7 +92,13 @@ final class CaptureViewModel: @unchecked Sendable {
             ]
 
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            audioRecorder?.record()
+            guard let recorder = audioRecorder else {
+                await MainActor.run {
+                    errorMessage = "Recording unavailable"
+                }
+                return
+            }
+            recorder.record()
             recordingURL = audioFilename
 
             await MainActor.run {

@@ -37,12 +37,14 @@ struct ContentView: View {
                     Label("Pulse", systemImage: "heart.fill")
                 }
                 .tag(0)
+                .accessibilityLabel("Pulse tab")
 
             TimelineView()
                 .tabItem {
                     Label("Timeline", systemImage: "calendar")
                 }
                 .tag(1)
+                .accessibilityLabel("Timeline tab")
 
             // R4: Social Comparison tab
             SocialComparisonView()
@@ -50,12 +52,14 @@ struct ContentView: View {
                     Label("Compare", systemImage: "person.3.fill")
                 }
                 .tag(2)
+                .accessibilityLabel("Compare tab")
 
             CaptureView()
                 .tabItem {
                     Label("Capture", systemImage: "plus.circle.fill")
                 }
                 .tag(3)
+                .accessibilityLabel("Capture tab")
 
             // R9: Family Circle tab
             FamilyCircleView()
@@ -63,12 +67,14 @@ struct ContentView: View {
                     Label("Family", systemImage: "figure.2.and.child.holdinghands")
                 }
                 .tag(4)
+                .accessibilityLabel("Family tab")
 
             PrivacyView()
                 .tabItem {
                     Label("Privacy", systemImage: "lock.shield")
                 }
                 .tag(5)
+                .accessibilityLabel("Privacy tab")
         }
         .tint(Theme.Colors.mutedRose)
     }

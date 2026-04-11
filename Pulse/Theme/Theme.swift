@@ -33,8 +33,8 @@ enum Theme {
             switch value {
             case 0.8...1.0: return veryPositive
             case 0.4..<0.8: return positive
-            case -0.4..<0.4: return neutral
-            case -0.8..<(-0.4): return negative
+            case (-0.4)..<0.4: return neutral
+            case (-0.8)..<(-0.4): return negative
             default: return veryNegative
             }
         }
@@ -48,7 +48,7 @@ enum Theme {
 
     // MARK: - Typography
     enum Typography {
-        static let displayFont = Font.custom("NewYork-Regular", size: 28, relativeTo: .title)
+        static let displayFont = Font.system(size: 28, weight: .semibold, design: .serif)
         static let titleFont = Font.system(size: 24, weight: .semibold, design: .default)
         static let headlineFont = Font.system(size: 20, weight: .semibold, design: .serif)
         static let bodyFont = Font.system(size: 16, weight: .regular)
@@ -90,10 +90,18 @@ enum Theme {
     enum Animations {
         static let slowEaseInOut = Animation.easeInOut(duration: 0.5)
         static let gentleEaseOut = Animation.easeOut(duration: 0.4)
-        static let breathing = Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true)
-        static let pulse = Animation.easeInOut(duration: 0.3).repeatForever(autoreverses: true)
         static let springBack = Animation.spring(response: 0.3, dampingFraction: 0.6)
         static let cardAppear = Animation.easeOut(duration: 0.5)
+        
+        /// Returns a breathing animation, or nil if reduce motion is enabled
+        static var breathing: Animation? {
+            UIAccessibility.isReduceMotionEnabled ? nil : Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true)
+        }
+        
+        /// Returns a pulse animation, or nil if reduce motion is enabled
+        static var pulse: Animation? {
+            UIAccessibility.isReduceMotionEnabled ? nil : Animation.easeInOut(duration: 0.3).repeatForever(autoreverses: true)
+        }
     }
 }
 

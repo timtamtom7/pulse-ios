@@ -2,7 +2,7 @@ import Foundation
 
 /// Service for managing Family Circle — aggregate emotional health of close group
 @Observable
-final class FamilyCircleService: @unchecked Sendable {
+final class FamilyCircleService {
     static let shared = FamilyCircleService()
 
     var familyMoments: [FamilyMoment] = []
@@ -10,8 +10,8 @@ final class FamilyCircleService: @unchecked Sendable {
     var isLoading = false
 
     private let userDefaults = UserDefaults.standard
-    private let familyMomentsKey = "family_circle_moments"
-    private let familySummaryKey = "family_weekly_summary"
+    private let familyMomentsKey = "group.com.pulse.app.family_circle_moments"
+    private let familySummaryKey = "group.com.pulse.app.family_weekly_summary"
 
     private init() {
         loadFamilyData()

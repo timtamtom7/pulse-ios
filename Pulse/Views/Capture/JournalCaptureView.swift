@@ -24,7 +24,6 @@ struct JournalCaptureView: View {
                         .foregroundColor(Theme.Colors.charcoal)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, Theme.Spacing.xl)
-                        .transition(.opacity.combined(with: .move(edge: .bottom)))
                 }
                 .padding(.top, Theme.Spacing.xl)
                 .onAppear {
@@ -143,3 +142,21 @@ struct JournalCaptureView: View {
         .padding()
         .background(Theme.Colors.primaryBackground)
 }
+
+// MARK: - Reduce Motion Modifier
+struct ReduceMotionModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content.animation(UIAccessibility.isReduceMotionEnabled ? nil : .default, value: UUID())
+    }
+}
+
+extension View {
+    func withReduceMotionTransition(_ transition: AnyTransition) -> some View {
+        if UIAccessibility.isReduceMotionEnabled {
+            return AnyView(self)
+        } else {
+            return AnyView(self.transition(transition))
+        }
+    }
+}
+MODEOF

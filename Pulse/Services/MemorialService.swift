@@ -3,14 +3,14 @@ import Foundation
 /// R9: Memorial Mode — when a loved one passes, their account becomes a memorial
 /// with read-only access to their emotional history
 @Observable
-final class MemorialService: @unchecked Sendable {
+final class MemorialService {
     static let shared = MemorialService()
 
     var memorialAccounts: [MemorialAccount] = []
     var isEnabled: Bool { !memorialAccounts.isEmpty }
 
     private let userDefaults = UserDefaults.standard
-    private let memorialKey = "memorial_accounts"
+    private let memorialKey = "group.com.pulse.app.memorial_accounts"
 
     private init() {
         loadMemorialAccounts()

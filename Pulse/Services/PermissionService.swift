@@ -68,16 +68,24 @@ final class PermissionService: @unchecked Sendable {
 
     func requestCalendarPermission() async -> PermissionStatus {
         do {
-            if #available(iOS 26.0, *) {
+            if #available(iOS 18.0, *) {
                 let status = try await eventStore.requestFullAccessToEvents()
                 await MainActor.run {
                     calendarStatus = status ? .authorized : .denied
                 }
                 return calendarStatus
             } else {
-                let status = try await eventStore.requestAccess(to: .event)
-                await MainActor.run {
-                    calendarStatus = status ? .authorized : .denied
+                // iOS 17 and earlier - use legacy requestAccess
+                let status = EKEventStore.authorizationStatus(for: .event)
+                if status == .notDetermined {
+                    let granted = try await eventStore.requestAccess(to: .event)
+                    await MainActor.run {
+                        calendarStatus = granted ? .authorized : .denied
+                    }
+                } else {
+                    await MainActor.run {
+                        calendarStatus = mapCalendarStatus(status)
+                    }
                 }
                 return calendarStatus
             }

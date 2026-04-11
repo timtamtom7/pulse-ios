@@ -38,6 +38,9 @@ actor AnalysisService {
     // MARK: - Text Analysis
 
     func analyzeText(_ text: String) async -> (score: Double, tags: [EmotionTag]) {
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return (0, [])
+        }
         let tagger = NLTagger(tagSchemes: [.sentimentScore])
         tagger.string = text
 

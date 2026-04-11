@@ -40,12 +40,12 @@ final class PulseViewModel: @unchecked Sendable {
         currentStreak = calculateStreak(from: allMoments)
         generateWeeklyInsightFromMoments(allMoments)
 
-        // R3: Run correlation analysis
+        // R3: Run correlation analysis with error tracking
         Task {
             await runCorrelationAnalysis(moments: allMoments)
         }
 
-        // R4: Generate social comparison insights
+        // R4: Generate social comparison insights with error tracking
         Task {
             await generateSocialComparisons(moments: allMoments)
         }

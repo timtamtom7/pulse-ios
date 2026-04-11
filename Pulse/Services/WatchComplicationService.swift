@@ -7,7 +7,9 @@ import SwiftUI
 final class WatchComplicationService: @unchecked Sendable {
     static let shared = WatchComplicationService()
 
-    private let userDefaults = UserDefaults(suiteName: "group.com.pulse.app")
+    private var userDefaults: UserDefaults {
+        UserDefaults(suiteName: "group.com.pulse.app") ?? UserDefaults.standard
+    }
 
     private init() {}
 

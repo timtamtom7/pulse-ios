@@ -63,11 +63,11 @@ final class PulseR11Service: ObservableObject {
     }
 
     func getCPUMetric() -> String {
-        return "CPU: \(Int.random(in: 5...30))%"
+        return "CPU: --"
     }
 
     func getMemoryMetric() -> String {
-        return "Memory: \(Int.random(in: 40...80))%"
+        return "Memory: --"
     }
 
     func getTopProcess() -> String {
